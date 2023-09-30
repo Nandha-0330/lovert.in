@@ -70,7 +70,11 @@ def send_email_with_retry(subject, message, recipients, max_retries=3):
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    if request.method == 'POST':
+    if 'user_id' not in session:
+        flash("Please log in to book seats.")
+        return redirect(url_for('login'))
+    elif request.method == 'POST':
+        
         location = request.form.get('location')
         event_package = request.form.get('event_package')
         event_location = request.form.get('event_location')
