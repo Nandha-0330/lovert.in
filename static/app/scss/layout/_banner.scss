@@ -1,0 +1,478 @@
+@use '../utils' as *;
+
+/* ------------------------------------------ */
+/*  19 - banner css  */
+/* ------------------------------------------ */
+.ms-banner__main-wrapper {
+    padding-top: 50px;
+    padding-bottom: 140px;
+
+    @media #{$sm,$xs} {
+        padding-bottom: 80px;
+    }
+}
+
+.ms-banner__bg-title {
+    font-size: 200px;
+    line-height: 1;
+    font-family: var(--bd-ff-subtitle);
+    font-weight: var(--bd-fw-regular);
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-size: cover;
+    background-position: center;
+    color: transparent;
+    margin-bottom: 50px;
+    display: inline-block;
+
+    @media #{$lg, $md, $sm, $xs} {
+        font-size: 150px;
+    }
+
+    @media #{$xs} {
+        font-size: 90px;
+    }
+}
+
+.ms-banner__title {
+    font-weight: var(--bd-fw-sbold);
+    font-size: 65px;
+    color: var(--clr-common-white);
+    line-height: 1.2;
+    text-transform: capitalize;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 5;
+
+    @media #{$lg} {
+        font-size: 50px;
+    }
+
+    @media #{$md, $sm, $xs} {
+        font-size: 40px;
+    }
+
+    @media #{$xxs} {
+        font-size: 34px;
+    }
+}
+
+.ms-banner__from-inner {
+    border-radius: 32px;
+    display: grid;
+    padding: 5px 5px 5px 25px;
+    grid-template-columns: auto auto auto auto;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px 30px;
+
+    @include rtl {
+        padding: 5px 25px 5px 5px;
+    }
+
+    @media #{$md} {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 20px 30px 35px 25px;
+        border-radius: 10px;
+        gap: 10px 90px;
+
+        @include rtl {
+            padding: 20px 30px 35px 25px;
+        }
+    }
+
+    @media #{$sm, $xs} {
+        padding: 40px;
+        display: block;
+        width: 100%;
+        border-radius: 20px;
+
+        @include rtl {
+            padding: 40px;
+        }
+    }
+
+    @media #{$xxs} {
+        padding: 30px 20px;
+
+        @include rtl {
+            padding: 25px 20px;
+        }
+    }
+
+}
+
+.ms-banner__form-select {
+    background: transparent;
+    border: 0;
+    position: relative;
+
+    @media #{$sm, $xs} {
+        width: 100%;
+        border: 1px solid #8080805c;
+        height: 65px;
+        line-height: 65px;
+        margin-bottom: 20px;
+        border-radius: 32.5px;
+        padding: 0 30px;
+    }
+
+    @media #{$xxs} {
+        padding: 0 20px;
+
+        @include rtl {
+            padding: 0 20px;
+        }
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset-inline-end: -63px;
+        top: 50%;
+        height: 24px;
+        width: 1px;
+        background: var(--clr-bg-8);
+        transform: translateY(-50%);
+
+        @media #{$xl} {
+            inset-inline-end: -32px;
+        }
+
+        @media #{$lg, $md, $sm, $xs} {
+            display: none;
+        }
+    }
+
+    &.nice-select {
+        .list {
+            background-color: var(--clr-common-white);
+
+            .option:hover,
+            .option.focus,
+            .option.selected.focus {
+                background-color: #e6e6e6;
+            }
+        }
+
+        &::after {
+            border-bottom: 2px solid var(--clr-common-body-text);
+            border-right: 2px solid var(--clr-common-body-text);
+            height: 9px;
+            width: 9px;
+            margin-top: -7px;
+
+            @media #{$sm, $xs} {
+                inset-inline-end: 30px;
+            }
+
+            @media #{$xxs} {
+                inset-inline-end: 20px;
+            }
+        }
+    }
+
+    &.ms-border-none {
+        &::before {
+            display: none;
+        }
+    }
+}
+
+.ms-banner__form-select.ms-nice-select .current {
+    color: var(--clr-common-body-text);
+    font-size: 15px;
+}
+
+.banner__form-button {
+    .input__btn {
+        i {
+            font-size: 20px;
+            margin-inline-end: 3px;
+        }
+
+        @media #{$sm, $xs} {
+            display: block;
+            width: 100%;
+        }
+    }
+
+    .ms-white-bg {
+        display: block;
+        width: 100%;
+    }
+}
+
+// Banner 2 CSS 
+.ms-banner2-height {
+    min-height: 845px;
+
+    @media #{$xxs} {
+        min-height: 700px;
+    }
+}
+
+.ms-banner2-shape {
+    background: linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(13, 13, 13, 0.5) 53.4%, var(--clr-bg-4) 98.68%);
+    height: 350px;
+    width: 100%;
+    bottom: 0;
+    z-index: 10;
+}
+
+.ms-banner2-cover-img {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+}
+
+.ms-banner2-title {
+    position: absolute;
+    z-index: 100;
+    text-align: center;
+    color: var(--clr-common-white);
+    margin: auto;
+    left: 0;
+    right: 0;
+    font-weight: 400;
+    font-size: 330px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.2;
+
+    @media #{$xxl, $xl} {
+        font-size: 250px;
+    }
+
+    @media #{$lg, $md} {
+        font-size: 200px;
+    }
+
+    @media #{$sm} {
+        font-size: 130px;
+    }
+
+    @media #{$xs} {
+        font-size: 80px;
+    }
+}
+
+.ms-banner2-video {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 29;
+    bottom: 0;
+}
+
+.ms-banner2-video-btn {
+    position: relative;
+    width: 94px;
+    height: 94px;
+    display: inline-block;
+    line-height: 94px;
+    border-radius: 50%;
+    z-index: 20;
+    font-size: 14px;
+    color: var(--clr-bg-9);
+    text-transform: capitalize;
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 94px;
+        height: 94px;
+        background: rgba(65, 65, 65, 0.3);
+        border-radius: 50%;
+    }
+
+    span {
+        position: absolute;
+        left: 0;
+        right: 0;
+        text-align: center;
+        @include transition(0.3s);
+    }
+
+    &:hover {
+        span {
+            color: var(--clr-theme-1);
+        }
+    }
+}
+
+.ms-find-musician-title {
+    font-weight: 600;
+    font-size: 65px;
+    text-transform: capitalize;
+    color: var(--clr-common-white);
+    text-align: center;
+
+    @media #{$xl, $lg} {
+        font-size: 50px;
+
+        br {
+            display: none;
+        }
+    }
+
+    @media #{ $md, $sm,$xs} {
+        font-size: 40px;
+
+        br {
+            display: none;
+        }
+    }
+
+
+    @media #{$xxs} {
+        font-size: 34px;
+    }
+}
+
+
+.ms-banner__form.two {
+    .ms-banner__form-select {
+        &::before {
+            background: var(--clr-border-1);
+            inset-inline-end: -40px;
+        }
+
+        &.nice-select .list {
+            background-color: #2f2f2f;
+        }
+    }
+
+    .ms-banner__from-inner {
+        border: 1px solid var(--clr-border-3);
+
+
+    }
+}
+
+
+// Banner 3 css 
+.ms-opacity-2 {
+    opacity: 0.2;
+}
+
+
+
+.ms-banner3-item-wrap {
+    height: calc(100vh - 100px);
+    gap: 80px;
+
+    @media #{$lg} {
+        height: auto;
+        padding-top: 135px;
+        padding-bottom: 130px;
+    }
+
+    @media #{$md} {
+        height: auto;
+        padding-top: 135px;
+        padding-bottom: 130px;
+    }
+
+    @media #{$sm,$xs} {
+        height: auto;
+        padding-top: 135px;
+        padding-bottom: 50px;
+    }
+
+    @media #{$xxs} {
+        height: auto;
+        padding-top: 115px;
+        padding-bottom: 50px;
+    }
+}
+
+.ms-banner3-round {
+    top: 20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    animation: ms-rotation-360 30s linear infinite;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 615px;
+    height: 616px;
+    margin: auto;
+
+    @media #{$xxl, $xl} {
+        width: 500px;
+        height: 500px;
+    }
+
+    @media #{$xl} {
+        width: 400px;
+        height: 400px;
+    }
+
+    @media #{$lg, $md} {
+        height: 100%;
+        width: auto;
+    }
+
+    @media #{$sm,$xs} {
+        height: 100%;
+        width: auto;
+    }
+
+    @media #{$xxs} {
+        height: 100%;
+        width: auto;
+    }
+
+    img {
+        width: inherit;
+        height: inherit;
+    }
+}
+
+
+.ms-scroll-down {
+    position: absolute;
+    font-weight: 500;
+    font-size: 15px;
+    color: #414141;
+    inset-inline-start: -10px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    line-height: 1;
+    padding-inline-end: 20px;
+    @include transition(0.3s);
+
+    @include rtl {
+        transform: translateY(-50%) rotate(-90deg);
+    }
+
+    @media #{$xxxl, $xxl, $xl, $lg, $md, $sm, $xs} {
+        display: none;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        inset-inline-start: 100%;
+        top: 6px;
+        width: 280px;
+        height: 2px;
+        background: #414141;
+    }
+
+}
+
+.ms-banner-social {
+    inset-inline-end: -12px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+
+
+
+    @media #{$xxxl, $xxl, $xl, $lg, $md, $sm, $xs} {
+        display: none;
+    }
+
+
+}

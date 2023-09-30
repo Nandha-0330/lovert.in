@@ -1,0 +1,125 @@
+@use '../utils' as *;
+
+/* ------------------------------------------ */
+/*  34 - faq css  */
+/* ------------------------------------------ */
+
+.ms-faq-2column .accordion {
+	display: flex;
+	flex-wrap: wrap;
+	column-gap: 24px;
+}
+
+.ms-faq-2column .accordion>div {
+	width: calc((100% - 24px)/2);
+
+	@media #{$md, $sm, $xs} {
+		width: calc((100% - 0px)/1);
+	}
+}
+
+.ms-faq-wrap {
+	.accordion {
+		&-item {
+			border: 0;
+			margin: 20px 0;
+			background: var(--clr-bg-2);
+			border-radius: 8px;
+		}
+
+		&-button {
+			@include border-radius(10px);
+
+			&::after {
+				content: "\f067";
+				background-image: none;
+				font-family: 'Font Awesome 6 Pro';
+				font-weight: 500;
+				inset-inline-end: 30px;
+				position: absolute;
+				top: 22px;
+
+				@media #{$xxs} {
+					inset-inline-end: 20px;
+				}
+			}
+
+			&:not(.collapsed)::after {
+				background-image: none;
+				@include transform(rotate(0));
+				content: "\f068";
+				font-family: "Font Awesome 6 Pro";
+			}
+
+		}
+
+		.accordion-button {
+			font-weight: 500;
+			font-size: 20px;
+			color: var(--clr-common-white);
+			padding: 20px 30px;
+			padding-inline-end: 70px;
+			line-height: 1.6;
+
+			@media #{$xxs} {
+				padding: 20px 20px;
+				padding-inline-end: 60px;
+				font-size: 18px;
+				line-height: 1.5;
+			}
+
+			&.collapsed {
+				background: var(--clr-bg-2);
+				color: var(--clr-common-white);
+			}
+
+			&:not(.collapsed) {
+				color: var(--clr-theme-1);
+				box-shadow: none;
+				background-color: transparent;
+			}
+
+			&:focus {
+				z-index: 3;
+				border-color: var(--clr-theme-1);
+				outline: 0;
+				box-shadow: none;
+			}
+		}
+
+		&-body {
+			padding: 0 70px 22px 30px;
+			color: var(--clr-text-5);
+			text-transform: capitalize;
+
+			@media #{$sm,$xs} {
+				padding: 0 30px 22px 30px;
+			}
+
+			@media #{$xxs} {
+				padding: 0 20px 22px 20px;
+			}
+
+			@include rtl {
+				padding: 0 30px 22px 70px;
+			}
+		}
+	}
+}
+
+// FAQ 2 css 
+.ms-faq-wrap2 {
+	.accordion-item {
+		background: var(--clr-bg-4);
+	}
+
+	.accordion {
+		.accordion-button.collapsed {
+			background: var(--clr-bg-4);
+		}
+	}
+}
+
+.accordion-button:not(.collapsed) {
+	pointer-events: none;
+}

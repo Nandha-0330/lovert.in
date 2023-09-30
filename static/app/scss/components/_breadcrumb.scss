@@ -1,0 +1,41 @@
+@use '../utils' as *;
+
+/* ------------------------------------------ */
+/*  09 - breadcrumb css  */
+/* ------------------------------------------ */
+
+// Breadcrumb style
+.ms-page-title {
+	font-weight: 600;
+	font-size: 50px;
+	color: var(--clr-common-white);
+	line-height: 1.4;
+
+	@media #{$sm, $xs} {
+		font-size: 40px;
+	}
+
+	@media #{$xxs} {
+		font-size: 34px;
+	}
+}
+
+.page-title-icon {
+	color: var(--clr-theme-1);
+	width: 80px;
+	height: 80px;
+	border: 1px solid var(--clr-theme-1);
+	line-height: 83px;
+	font-size: 40px;
+	border-radius: 50%;
+}
+
+.page-title-spacing {
+	padding-top: 130px;
+	padding-bottom: 130px;
+
+	@media #{$sm,$xs} {
+		padding-top: 80px;
+		padding-bottom: 80px;
+	}
+}

@@ -1,0 +1,23 @@
+@use '../utils' as *;
+
+/* ------------------------------------------ */
+/*  26 - partner css  */
+/* ------------------------------------------ */
+
+.ms-partner-active {
+    .swiper-slide {
+        text-align: center;
+
+        img {
+            filter: grayscale(1);
+            @include transition(0.3s);
+            max-width: 100%;
+        }
+
+        &:hover {
+            img {
+                filter: grayscale(0);
+            }
+        }
+    }
+}

@@ -1,0 +1,59 @@
+@use '../utils' as *;
+
+/* ------------------------------------------ */
+/*  31 - about css  */
+/* ------------------------------------------ */
+
+.ms-about-content {
+    p {
+        @media #{$lg, $md, $sm, $xs} {
+            br {
+                display: none;
+            }
+        }
+    }
+}
+
+.ms-video-img1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    &::before {
+        position: absolute;
+        content: '';
+        top: 0;
+        inset-inline-start: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: var(--clr-common-black);
+        opacity: 0.5;
+    }
+}
+
+.ms-video-img2 {
+    img {
+        animation: ms-rotation-360 10s linear infinite;
+
+        @media #{$xxs} {
+            width: 280px;
+        }
+    }
+}
+
+.ms-video-img1 img {
+    @media #{$xxs} {
+        width: 220px;
+    }
+}
+
+.ms-video-round .ms-video-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--clr-bg-1);
+    font-size: 40px;
+}

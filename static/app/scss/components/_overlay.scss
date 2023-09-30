@@ -1,0 +1,121 @@
+@use '../utils' as *;
+
+/* ------------------------------------------ */
+/*  03 - overlay css  */
+/* ------------------------------------------ */
+
+.ms-overlay-1::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	inset-inline-start: 0;
+	width: 100%;
+	height: 100%;
+	background: var(--clr-gradient-1);
+	z-index: -1;
+}
+
+.ms-overlay {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	inset-inline-start: 0;
+}
+
+.ms-overlay1 {
+	background: var(--clr-bg-2);
+	opacity: 0.7;
+}
+
+.ms-overlay2 {
+	bottom: 0;
+	inset-inline-start: 0;
+	width: 100%;
+	height: 300px;
+	background: linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, #0D0D0D 100%);
+}
+
+.ms-overlay3 {
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+	border-radius: 20px;
+}
+
+.ms-overlay4 {
+	background: linear-gradient(180deg, var(--clr-bg-2) 0%, rgba(24, 24, 24, 0.85) 100%, var(--clr-bg-2) 100%);
+}
+
+.ms-overlay5 {
+	background: rgba(13, 13, 13, 0.9);
+}
+
+.ms-overlay6 {
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, var(--clr-bg-2) 100%);
+}
+
+.ms-overlay7 {
+	background: rgba(0, 0, 0, 0.89);
+}
+
+.ms-overlay8 {
+	background: #121212;
+	opacity: 0.7;
+}
+
+.ms-overlay9 {
+	background: var(--clr-bg-2);
+	opacity: 0.8;
+}
+
+.ms-overlay10 {
+	@include transition(0.3s);
+
+	&::before {
+		background: linear-gradient(180deg, rgba(24, 24, 24, 0) -13.21%, var(--clr-bg-2) 86.79%);
+		border-radius: 15px;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		inset-inline-start: 0;
+		content: '';
+		position: absolute;
+		@include transition(0.3s);
+		z-index: 1;
+	}
+
+	&::after {
+		background: linear-gradient(180deg, rgba(255, 193, 7, 0.24) 0%, var(--clr-theme-1) 100%);
+		border-radius: 15px;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		inset-inline-start: 0;
+		content: '';
+		position: absolute;
+		@include transition(0.3s);
+		opacity: 0;
+		visibility: hidden;
+	}
+
+	&:hover {
+		&::before {
+			opacity: 0;
+			visibility: hidden;
+		}
+
+		&::after {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}
+
+.ms-overlay11 {
+	background: linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, #0D0D0D 100%);
+	border-radius: 15px;
+}
+
+// opacity css 
+.ms-opacity-2 {
+	opacity: 0.2;
+}

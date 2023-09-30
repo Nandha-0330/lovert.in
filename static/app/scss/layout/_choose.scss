@@ -1,0 +1,102 @@
+@use '../utils' as *;
+
+/* ------------------------------------------ */
+/*  32 - choose css  */
+/* ------------------------------------------ */
+
+.ms-review-part {
+    background: var(--clr-bg-2);
+    border-radius: 10px;
+    padding: 20px 27px;
+}
+
+.ms-review-gap {
+    gap: 15px 30px;
+    flex-wrap: wrap;
+}
+
+.ms-review-left {
+    h3 {
+        font-size: 16px;
+        color: var(--clr-text-7);
+        margin-bottom: 10px;
+        line-height: 1;
+    }
+
+    p {
+        font-weight: 500;
+        font-size: 16px;
+        color: var(--clr-common-white);
+        margin-bottom: 0;
+        line-height: 1;
+    }
+}
+
+.ms-review-right {
+    min-width: 111px;
+    background: var(--clr-bg-10);
+    border-radius: 30px;
+    text-align: center;
+    padding: 10px 0;
+    line-height: 1;
+}
+
+.ms-choose-item {
+    padding: 20px;
+    border: 1px solid var(--clr-border-1);
+    border-radius: 15px;
+    @include transition(0.3s);
+
+    &:hover {
+        border-color: var(--clr-common-white);
+
+        .ms-choose-icon {
+            background-color: var(--clr-theme-1);
+        }
+    }
+}
+
+.ms-choose-icon {
+    background: var(--clr-border-1);
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    border-radius: 50%;
+    text-align: center;
+    margin-bottom: 18px;
+    @include transition(0.3s);
+
+    i {
+        color: var(--clr-common-white);
+        font-size: 25px;
+        top: 7px;
+    }
+
+    span {
+        position: absolute;
+        top: 10px;
+        inset-inline-end: -8px;
+        font-weight: 600;
+        font-size: 12px;
+        background: var(--clr-bg-1);
+        width: 22px;
+        height: 22px;
+        line-height: 22px;
+        border-radius: 50%;
+        color: var(--clr-common-black);
+    }
+}
+
+.ms-choose-title {
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--clr-text-3);
+    line-height: 1.5;
+}
+
+.ms-choose-bg {
+    img {
+        min-height: 200px;
+        object-fit: cover;
+    }
+}

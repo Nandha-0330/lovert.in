@@ -1,0 +1,95 @@
+@use '../utils' as *;
+
+/* ------------------------------------------ */
+/*  29 - cta css  */
+/* ------------------------------------------ */
+
+.ms-cta-wrap {
+	display: flex;
+	justify-content: space-between;
+	gap: 50px 70px;
+	align-items: center;
+
+	@media #{ $md, $sm, $xs} {
+		flex-direction: column;
+		align-items: start;
+	}
+}
+
+.ms-cta-app {
+	display: flex;
+	justify-content: end;
+	gap: 20px;
+	align-items: center;
+
+	@media #{$lg} {
+		flex-direction: column;
+	}
+
+	@media #{$md, $sm} {
+		justify-content: start;
+	}
+
+	@media #{$xs} {
+		flex-wrap: wrap;
+		justify-content: start;
+	}
+}
+
+.ms-cta-app a img {
+	width: 100%;
+	height: 100%;
+}
+
+.ms-cta-app a {
+	min-width: 136px;
+	width: 137px;
+	height: 41px;
+}
+
+.ms-cta-img {
+	min-width: 150px;
+}
+
+.ms-cta-bg {
+	border-radius: 20px;
+	padding: 65px;
+
+	@media #{$sm} {
+		padding: 40px;
+	}
+
+	@media #{$xs} {
+		padding: 30px;
+	}
+
+	@media #{$xxs} {
+		padding: 20px;
+	}
+}
+
+.ms-cta-content p {
+	text-transform: capitalize;
+	color: var(--clr-text-5);
+}
+
+.ms-cta-overlay {
+	position: relative;
+
+	&::after {
+		content: '';
+		width: 100%;
+		height: 100%;
+		background: var(--clr-common-black);
+		opacity: 0.7;
+		border-radius: 20px;
+		inset-inline-start: 0;
+		top: 0;
+		z-index: -1;
+		position: absolute;
+	}
+}
+
+.ms-cta--120 {
+	margin-bottom: -120px;
+}

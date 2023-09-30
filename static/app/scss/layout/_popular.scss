@@ -1,0 +1,180 @@
+@use '../utils' as *;
+
+/* ------------------------------------------ */
+/*  21 - popular css  */
+/* ------------------------------------------ */
+
+.ms-popular__thumb {
+	position: relative;
+	border-radius: 50%;
+	overflow: hidden;
+
+	img {
+		width: 100%;
+	}
+
+	cursor: url(../../img/popular/drak.png) 32 32,
+	auto;
+	transition: cursor .5s;
+
+	&:hover {
+		.ms-popular__link {
+			opacity: 1;
+			visibility: visible;
+			top: 50%;
+		}
+
+		.ms-popular-overlay {
+			@include transform(scale(1));
+			opacity: 0.8;
+			visibility: visible;
+		}
+	}
+}
+
+.ms-popular__title a {
+	color: var(--clr-bg-4);
+	font-weight: 500;
+	font-size: 20px;
+	background: var(--clr-bg-1);
+	border-radius: 30px;
+	display: inline-block;
+	padding: 13px 28px;
+	line-height: 1;
+	position: absolute;
+	bottom: 8px;
+	@include transition(0.3s);
+
+
+	&:hover {
+		color: var(--clr-common-white);
+	}
+}
+
+.ms-popular__link {
+	display: inline-block;
+	width: 74px;
+	height: 74px;
+	background: var(--clr-common-white);
+	line-height: 74px;
+	text-align: center;
+	border-radius: 50%;
+	color: var(--clr-theme-1);
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	opacity: 0;
+	visibility: hidden;
+	@include transition(0.7s);
+	transform: translate(-50%, -50%);
+
+	.ms-popular-icon {
+		i {
+			font-size: 20px;
+		}
+	}
+
+	span {
+		transform: rotate(-30deg);
+		display: inline-block;
+	}
+
+	&:hover {
+		.ms-popular-icon {
+			i {
+				animation: iconltr 0.5s forwards;
+			}
+		}
+	}
+}
+
+.ms-popular-overlay {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	position: absolute;
+	background: var(--clr-gradient-5);
+	width: 100%;
+	height: 100%;
+	@include transform(scale(0.5));
+	opacity: 0;
+	visibility: hidden;
+	@include transition(0.3s);
+	@include border-radius(50%);
+}
+
+
+.ms-popular__tab {
+	.nav-tabs {
+		border-bottom: 0;
+		@include flexbox();
+		justify-content: end;
+		gap: 15px;
+	}
+}
+
+.ms-popular__tab {
+	.nav-tabs {
+		.nav-link {
+			border-radius: 30px;
+			margin-bottom: 0;
+			color: var(--clr-common-body-text);
+			border: 1px solid var(--clr-border-1);
+			@include transition(0.3s);
+
+			&.active,
+			&:hover {
+				color: var(--clr-common-white);
+				background: var(--clr-gradient-3);
+				border-color: transparent;
+			}
+		}
+	}
+}
+
+.ms-popular-flex .nav-tabs {
+	@media #{$lg, $md, $sm, $xs} {
+		display: flex;
+		justify-content: start;
+	}
+}
+
+.ms-popular-slick {
+	margin: 0 12px;
+}
+
+.ms-popular3__title {
+	font-size: 20px;
+	color: var(--clr-common-white);
+	text-align: center;
+	margin-top: 30px;
+
+	&:hover {
+		color: var(--clr-theme-1);
+	}
+}
+
+
+.mb-tab-button-style {
+	border-bottom: 0;
+	@include flexbox();
+	gap: 15px;
+
+	.nav-link {
+		border-radius: 30px;
+		margin-bottom: 0;
+		color: var(--clr-common-body-text);
+		border: 1px solid var(--clr-border-1);
+
+		&:hover {
+			border-color: var(--clr-common-white);
+			color: var(--clr-common-white);
+		}
+
+		&.active {
+			color: var(--clr-common-white);
+			background: var(--clr-gradient-3);
+			border-color: transparent;
+		}
+	}
+}

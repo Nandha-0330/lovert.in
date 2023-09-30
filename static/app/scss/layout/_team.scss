@@ -1,0 +1,366 @@
+@use '../utils' as *;
+
+/* ------------------------------------------ */
+/*  33 - team css  */
+/* ------------------------------------------ */
+
+.ms-team-img {
+    width: 306px;
+    height: 306px;
+    position: relative;
+    margin-top: 20px;
+
+    @media #{$lg,$md} {
+        margin-top: 15px;
+    }
+
+    @media #{$sm,$xs} {
+        margin-top: 0;
+    }
+
+    @media #{$xxs} {
+        width: 100%;
+        height: auto;
+    }
+
+    img {
+        border-radius: 50%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -20px;
+        inset-inline-end: -20px;
+        width: 100%;
+        height: 100%;
+        border: 1px solid var(--clr-bg-3);
+        border-radius: 172px;
+        z-index: 2;
+
+
+
+        @media #{$lg,$md} {
+            top: -15px;
+            right: -15px;
+        }
+
+        @media #{$sm,$xs} {
+            top: 0px;
+            right: -10px;
+        }
+
+        @media #{$xxs} {
+            display: none;
+        }
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--clr-common-black);
+        border-radius: 153px;
+        opacity: 0;
+        visibility: hidden;
+        @include transition(0.3s);
+    }
+}
+
+.ms-team-title {
+    z-index: 4;
+    position: relative;
+
+    a {
+        font-size: 20px;
+        color: var(--clr-bg-2);
+        background: var(--clr-bg-1);
+        border-radius: 41px;
+        transform: rotate(-15deg);
+        padding: 12px 25px;
+        line-height: 1;
+        bottom: 41px;
+        inset-inline-start: 62px;
+        display: block;
+        position: absolute;
+        z-index: 1;
+        overflow: hidden;
+        @include transition(0.3s);
+
+        @include rtl {
+            transform: rotate(15deg);
+        }
+
+        &::before {
+            position: absolute;
+            content: '';
+            top: 0;
+            inset-inline-start: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(89.88deg, var(--clr-theme-1) 1.23%, var(--clr-bg-3) 100.02%);
+            opacity: 0;
+            visibility: hidden;
+            @include transition(0.3s);
+            z-index: -1;
+            width: 0;
+        }
+
+        &:hover {
+            &::before {
+                opacity: 1;
+                visibility: visible;
+                width: 100%;
+            }
+
+            color: var(--clr-common-white);
+        }
+
+    }
+}
+
+.ms-team-social {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 0 43px;
+    z-index: 5;
+
+    a {
+        font-weight: 500;
+        font-size: 15px;
+        color: var(--clr-text-9);
+        position: relative;
+        padding-bottom: 10px;
+        visibility: hidden;
+        opacity: 0;
+
+        &::before {
+            content: '';
+            bottom: 0;
+            width: 4px;
+            height: 4px;
+            background: var(--clr-common-white);
+            position: absolute;
+            border-radius: 50%;
+            inset-inline-start: 0;
+            right: 0;
+            margin: auto;
+        }
+
+        &:hover {
+            color: var(--clr-theme-1);
+
+            &::before {
+                background: var(--clr-theme-1);
+            }
+        }
+
+        &:nth-child(1) {
+            @include transition(0.3s);
+        }
+
+        &:nth-child(2) {
+            @include transition(0.6s);
+        }
+
+        &:nth-child(3) {
+            @include transition(0.9s);
+        }
+    }
+}
+
+.ms-team-item {
+    &:hover {
+        .ms-team-img {
+            &::after {
+                opacity: 0.8;
+                visibility: visible;
+            }
+        }
+
+        .ms-team-social {
+            a {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.ms-team-inner {
+    margin-bottom: 40px;
+
+    @media #{$lg, $md, $sm, $xs} {
+        margin-bottom: 0px;
+    }
+}
+
+.ms-team-item-wrap {
+    margin-bottom: 0px;
+
+
+
+    @media #{$lg, $md, $sm, $xs} {
+        margin-top: 0;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+}
+
+.ms-team-item {
+    display: inline-block;
+}
+
+.ms-team-inner {
+    div {
+
+        &:nth-child(2),
+        &:nth-child(5) {
+            .ms-team-item-wrap {
+                margin-top: 125px;
+
+                @media #{$lg, $md, $sm, $xs} {
+                    margin-top: 0;
+                }
+            }
+        }
+
+        &:nth-child(4),
+        &:nth-child(5),
+        &:nth-child(6) {
+            .ms-team-item-wrap {
+                text-align: right;
+
+                @media #{$lg, $md, $sm, $xs} {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+
+
+.ms-team-img-details {
+    max-width: 600px;
+
+    img {
+        width: 100%;
+    }
+}
+
+
+
+.follow-text {
+    font-size: 18px;
+    color: var(--clr-bg-8);
+}
+
+.ms-team-item-details {
+    .ms-team-role {
+        font-size: 30px;
+        color: var(--clr-bg-8);
+        font-weight: 500;
+
+    }
+
+    h4 {
+        font-size: 18px;
+        font-weight: 500;
+        color: var(--clr-bg-8);
+        margin-bottom: 20px;
+    }
+
+    p {
+        margin-bottom: 20px;
+    }
+}
+
+// bd-skill style
+.bd-skill--title__wrapper {
+    margin-bottom: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & span {
+        color: var(--clr-body-heading);
+    }
+}
+
+.bd-skill--title {
+    font-size: 16px;
+    display: inline-block;
+    margin-bottom: 0px;
+    font-weight: 500;
+    text-transform: capitalize;
+    font-family: "Poppins", sans-serif;
+    color: var(--clr-common-body-text);
+}
+
+.bd-skill__wrapper {
+    overflow-x: clip;
+
+    .progress {
+        height: 6px;
+        border-radius: 10px;
+        overflow: inherit;
+        background-color: var(--clr-bg-2);
+
+        .progress-bar {
+            background: var(--clr-theme-1);
+            position: relative;
+            overflow: inherit;
+            border-radius: 10px;
+
+            @include rtl {
+                animation-name: slideInRight;
+            }
+
+            span {
+                height: 22px;
+                width: 4px;
+                display: inline-block;
+                background: var(--clr-bg-1);
+                position: absolute;
+                transform: rotate(20deg);
+                right: -2px;
+                border-radius: 30px;
+                display: none;
+            }
+        }
+    }
+}
+
+.bd-skill--content {
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.bd-skill--title__wrapper {
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.bd-skill--title__wrapper span {
+    position: absolute;
+    top: 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--clr-common-body-text);
+    font-family: "Poppins", sans-serif;
+    line-height: 1;
+    inset-inline-end: 0;
+
+}

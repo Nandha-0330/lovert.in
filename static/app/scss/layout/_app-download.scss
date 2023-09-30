@@ -1,0 +1,416 @@
+@use '../utils' as *;
+
+/* ------------------------------------------ */
+/*  30 - app-download css  */
+/* ------------------------------------------ */
+.ms-app-text {
+    max-width: 570px;
+}
+
+.ms-app-list {
+    a {
+        margin-inline-end: 10px;
+        margin-bottom: 15px;
+        display: inline-block;
+
+        &:last-child {
+            margin-inline-end: 0;
+        }
+    }
+}
+
+.ms-app-opacity {
+    a {
+        img {
+            opacity: 0.3;
+            @include transition(0.3s);
+        }
+
+        &:hover,
+        &.active {
+            img {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+
+// cricle css 
+
+.populer__cercle-video {
+    position: absolute;
+    top: 0;
+    inset-inline-start: 0;
+    width: 100%;
+    @include border-radius(50%);
+}
+
+.populer__item .circles_wrap {
+    margin: auto;
+    width: 850px;
+    height: 850px;
+    position: relative;
+    background-position: center;
+    background-size: contain;
+    @include border-radius(50%);
+    background-repeat: no-repeat;
+
+    @media #{$xxl} {
+        width: 800px;
+        height: 800px
+    }
+
+    @media #{$xl,$lg} {
+        width: 750px;
+        height: 750px
+    }
+
+    @media #{$md} {
+        width: 550px;
+        height: 550px;
+    }
+
+    @media #{$sm} {
+        width: 430px;
+        height: 430px;
+    }
+
+    @media #{$xs} {
+        width: 350px;
+        height: 350px;
+    }
+
+    @media #{$xxs} {
+        width: 260px;
+        height: 260px;
+    }
+}
+
+.populer__item {
+    .coin_wrap {
+        .dot {
+            display: block;
+            position: absolute;
+            content: "";
+            top: calc(50% - 1px);
+            inset-inline-start: 50%;
+            width: 50%;
+            height: 1px;
+            background: transparent;
+            transform-origin: left;
+
+            &::after {
+                position: absolute;
+                content: "";
+                width: 10px;
+                height: 10px;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                border-radius: 50%;
+                top: -26px;
+                right: -4px;
+                background-color: var(--clr-theme-2);
+            }
+        }
+
+        .dot2 {
+            display: block;
+            position: absolute;
+            content: "";
+            top: calc(50% - 1px);
+            inset-inline-start: 50%;
+            width: 50%;
+            height: 1px;
+            background: transparent;
+            transform-origin: left;
+
+            &::after {
+                position: absolute;
+                content: "";
+                width: 10px;
+                height: 10px;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                border-radius: 50%;
+                top: -26px;
+                right: -4px;
+                background-color: var(--clr-theme-2);
+            }
+        }
+    }
+
+    .circle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        border: 1px solid rgba(255, 175, 0, 0.8);
+        @include border-radius(50%);
+
+        &.circle1 {
+            width: 100%;
+            height: 100%;
+            z-index: 9;
+        }
+
+        &.circle2 {
+            width: 75%;
+            height: 75%;
+        }
+
+        &.circle3 {
+            width: 50%;
+            height: 50%;
+
+            .coin_wrap {
+
+                .dot-1 {
+                    display: block;
+                    position: absolute;
+                    content: "";
+                    top: calc(50% - 1px);
+                    inset-inline-start: 50%;
+                    width: 50%;
+                    height: 1px;
+                    background: transparent;
+                    transform-origin: left;
+
+                    &::after {
+                        position: absolute;
+                        content: "";
+                        width: 10px;
+                        height: 10px;
+                        -webkit-border-radius: 50%;
+                        -moz-border-radius: 50%;
+                        border-radius: 50%;
+                        top: -26px;
+                        right: -4px;
+                        background-color: var(--clr-theme-2);
+                        -webkit-transform: rotate(-242deg);
+                        transform: rotate(-242deg);
+                    }
+                }
+            }
+
+            .coin {
+                &:first-of-type {
+                    -webkit-transform: rotate(-60deg);
+                    transform: rotate(-60deg);
+                }
+            }
+
+
+        }
+
+        &.circle4 {
+            width: 25%;
+            height: 25%;
+
+            .coin_wrap {
+                -webkit-animation: circleMove 18s infinite linear;
+                animation: circleMove 18s infinite linear;
+
+                .dot-1 {
+                    display: block;
+                    position: absolute;
+                    content: "";
+                    top: calc(50% - 1px);
+                    inset-inline-start: 50%;
+                    width: 50%;
+                    height: 1px;
+                    background: transparent;
+                    transform-origin: left;
+                    -webkit-transform: rotate(-50deg);
+                    transform: rotate(-50deg);
+
+                    &::after {
+                        position: absolute;
+                        content: "";
+                        width: 10px;
+                        height: 10px;
+                        -webkit-border-radius: 50%;
+                        -moz-border-radius: 50%;
+                        border-radius: 50%;
+                        top: -26px;
+                        right: -4px;
+                        background-color: var(--clr-theme-2);
+                    }
+                }
+            }
+
+            img {
+                width: 24% !important;
+                max-width: 60px !important;
+                -webkit-animation-duration: 18s;
+                animation-duration: 18s;
+            }
+        }
+    }
+
+    .circle_center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        width: 27%;
+        max-width: 80px;
+    }
+
+    .coin_wrap {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        @include flexbox();
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-animation: circleMove 15s infinite linear;
+        animation: circleMove 15s infinite linear;
+    }
+
+    .coin {
+        width: 100%;
+        height: auto;
+        -webkit-transform-origin: center;
+        transform-origin: center;
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+        position: absolute;
+
+        img {
+            width: 95px;
+            -webkit-animation-duration: 15s;
+            animation-duration: 15s;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+        }
+
+        &:first-of-type {
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+
+            img {
+                width: 17%;
+                max-width: 70px;
+                -webkit-animation-name: imageMove1;
+                animation-name: imageMove1;
+            }
+        }
+
+        &:nth-of-type(2) {
+            -webkit-transform: rotate(60deg);
+            transform: rotate(60deg);
+
+            img {
+                width: 17%;
+                max-width: 70px;
+                -webkit-animation-name: imageMove2;
+                animation-name: imageMove2;
+            }
+        }
+
+        &:nth-of-type(3) {
+            -webkit-transform: rotate(120deg);
+            transform: rotate(120deg);
+
+            img {
+                width: 15%;
+                max-width: 70px;
+                -webkit-animation-name: imageMove3;
+                animation-name: imageMove3;
+            }
+        }
+
+        &:nth-of-type(4) {
+            -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+
+            img {
+                width: 18%;
+                max-width: 70px;
+                -webkit-animation-name: imageMove4;
+                animation-name: imageMove4
+            }
+        }
+
+        &:nth-of-type(5) {
+            -webkit-transform: rotate(240deg);
+            transform: rotate(240deg);
+
+            img {
+                width: 15%;
+                max-width: 87px;
+                -webkit-animation-name: imageMove5;
+                animation-name: imageMove5;
+            }
+        }
+
+        &:nth-of-type(6) {
+            -webkit-transform: rotate(300deg);
+            transform: rotate(300deg);
+
+            img {
+                width: 12%;
+                max-width: 70px;
+                -webkit-animation-name: imageMove6;
+                animation-name: imageMove6;
+            }
+        }
+    }
+}
+
+
+
+@media(max-width:1023px) {
+    .populer__item .coin:nth-of-type(4) img {
+        width: 17%
+    }
+}
+
+.populer__item {
+    .circle_center {
+        &::before {
+            position: absolute;
+            content: "";
+            height: 166px;
+            width: 166px;
+            background: var(--clr-theme-1);
+            top: 50%;
+            left: 50%;
+            @include transform(translate(-50%, -50%));
+            z-index: -1;
+            @include border-radius(50%);
+
+            @media #{$sm,$md} {
+                height: 116px;
+                width: 116px;
+            }
+
+            @media #{$xs} {
+                height: 100px;
+                width: 100px;
+            }
+        }
+    }
+
+    .circle {
+        &.circle4 {
+            .coin_wrap {
+                .coin {
+                    &:nth-child(2) {
+                        -webkit-transform: rotate(180deg);
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+        }
+    }
+}

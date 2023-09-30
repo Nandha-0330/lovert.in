@@ -1,0 +1,575 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Lovert-A Complete Event Organizer</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.svg in the root directory -->
+    <link rel="shortcut icon" type="image/x-icon" href="static/img/favicon.svg">
+    <!-- CSS here -->
+    <link rel="stylesheet" href="static/app/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/app/css/meanmenu.min.css">
+    <link rel="stylesheet" href="static/app/css/nice-select.css">
+    <link rel="stylesheet" href="static/app/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="static/app/css/slick.css">
+    <link rel="stylesheet" href="static/app/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="static/app/css/backtotop.css">
+    <link rel="stylesheet" href="static/app/css/magnific-popup.css">
+    <link rel="stylesheet" href="static/app/css/flaticon_musicly.css">
+    <link rel="stylesheet" href="static/app/css/fontawesome-pro.css">
+    <link rel="stylesheet" href="static/app/css/spacing.css">
+    <link rel="stylesheet" href="static/app/css/main.css">
+  <style>
+    /* Style for the input box */
+.custom-date-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+}
+
+/* Style for the label */
+.ms-input2-box label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+  </style>
+</head>
+
+<body>
+
+    <div class="mouseCursor cursor-outer"></div>
+    <div class="mouseCursor cursor-inner"><span>Drag</span></div>
+
+    <!-- Preloader start -->
+    <div id="preloader">
+        <div class="line-loader">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </div>
+    <!-- preloader end -->
+
+    <!-- Offcanvas area start -->
+    <div class="fix">
+        <div class="offcanvas__info">
+            <div class="offcanvas__wrapper">
+                <div class="offcanvas__content">
+                    <div class="offcanvas__top mb-40 d-flex justify-content-between align-items-center">
+                        <div class="offcanvas__logo">
+                            <a href="index.html">
+                                <img src="static/img/logo/logo.svg" alt="logo">
+                            </a>
+                        </div>
+                        <div class="offcanvas__close">
+                            <button>
+                                <i class="fal fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Your HTML template -->
+                        <div class="offcanvas__user mb-30 d-xxl-none">
+                            {% if 'user_id' in session %}
+                            <div class="user__acount">
+                                <span>
+                                    <a href='#'><i class="flaticon-user"></i></a>
+                                </span>
+                                <div class="user__name-mail">
+                                    <h4 class="user__name">{{ session['user_name'] }}</h4>
+                                    <p class="user__mail">{{ session['email'] }}</p>
+                                    <a class="font-weight-bold text-white" href="/logout">Logout</a>
+                                </div>
+                            </div>
+                            {% else %}
+                            <p><a class='font-weight-bold text-white' href="/login">Login</a></p>
+                            {% endif %}
+                          </div>
+                    <div class="hr-1 mt-30 mb-30 d-xl-none"></div>
+                    <div class="mobile-menu fix mb-30  d-xl-none"></div>
+                    <div class="hr-1 mt-30 mb-30 d-xl-none"></div>
+                  <div class='mb-20'> 
+                      {% if 'user_id' in session %}
+                      <a class="font-weight-bold text-white mb-5 m-10" href="/logout">Logout</a>
+                      {% endif %}
+                  </div>
+                    
+                    <div class="offcanvas__social">
+                        <div class="ms-footer-social mb-0">
+                            <a href="https://www.linkedin.com/" title="Instagram" target="_blank">IN</a>
+                            <a href="https://twitter.com/" title="Twitter" target="_blank">TW</a>
+                            <a href="https://www.facebook.com/" title="Facebook" target="_blank">FB</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="offcanvas__overlay"></div>
+    <div class="offcanvas__overlay-white"></div>
+    <!-- Offcanvas area start -->
+ <!-- Flash messages will be displayed here -->
+<style>
+    /* Style for the flash messages container */
+    .flash-container {
+        position: fixed;
+        top: 20px; /* Adjust as needed for your desired position */
+        right: 20px; /* Adjust as needed for your desired position */
+        z-index: 2147483647; /* Set a high z-index value to ensure it's on top of other elements */
+    }
+
+    /* Style for the flash messages */
+    .flash {
+        background-color: green; /* Background color for success messages */
+        color: white; /* Text color (white) */
+        padding: 10px;
+        border-radius: 5px;
+        margin-top: 40px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add shadow for a raised effect */
+    }
+</style>
+<div class="container mt-4">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</div>
+    <!-- Header area start -->
+    <header>
+        <div id="header-sticky" class="header__area header-1 ms-header-fixed ms-bg-body">
+            <div class="container-fluid ms-maw-1710">
+                <div class="row align-items-center">
+                    <div class="col-12">
+                        <div class="mega__menu-wrapper p-relative">
+                            <div class="header__main ms-border2 d-flex align-items-center justify-content-between">
+                                <div class="header__logo pt-10 pb-15">
+                                    <a href="index.html">
+                                        <img src="static/img/logo/logo.png" alt="logo not found">
+                                    </a>
+                                </div>
+                                <div class="header__right">
+                                    <div class="mean__menu-wrapper">
+                                        <div class="main-menu main-menu-ff-space">
+                                            <nav id="mobile-menu">
+                                                <ul>
+                                                    <li class="has-dropdown">
+                                                        <li><a href="/">Home</a></li>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/about">About us</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/works">How It Works</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/contact">Contact Us</a>
+                                                    </li>
+    
+                                                    <li>
+                                                        <a href="/#enquiry-section"> Enquiry Now</a>
+                                                    </li>
+                                                   <li>
+                                                  <span>
+                                                      {% if 'user_id' in session %}
+                                                          <div class="mobile-menu">
+                                                              <a class="font-weight-bold text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                  Welcome, {{ session['user_name'] }}
+                                                              </a>
+                                                              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                                  <a class="font-weight-bold text-white" href="/logout">Logout</a>
+                                                              </div>
+                                                          </div>
+                                                      {% else %}
+                                                          <a href="/login" class="font-weight-bold text-white">Login</a>
+                                                      {% endif %}
+                                                  </span>
+                                                      </li>
+                                                </ul>
+                                            </nav>
+                                            <!-- for wp -->
+                                            <div class="header__hamburger ml-50 d-none">
+                                                <button type="button" class="hamburger-btn offcanvas-open-btn">
+                                                    <span>01</span>
+                                                    <span>01</span>
+                                                    <span>01</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="header__hamburger">
+                                        <div class="sidebar__toggle">
+                                            <a class="bar-icon" href="javascript:void(0)">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header area end -->
+
+    <div class="ms-all-content ms-all-content-space">
+        <main>
+            <!-- page title area start  -->
+            <section class="page-title-area page-title-spacing p-relative zindex-1 "
+                data-background="static/img/bg/work-bg.jpg">
+                <div class="ms-overlay ms-overlay9 p-absolute zindex--1"></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-xxl-11">
+                            <h3 class="ms-page-title text-center">Sign up</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- page title area end  -->
+
+            <!-- login Area Start Here  -->
+            <section class="ms-login-area pb-50 pt-130">
+                <div class="container">
+                    <div class="ms-maxw-510 mx-auto">
+                        <div class="ms-login-wrap text-center ms-login-space ms-bg-2">
+                            <h3 class="ms-title4 mb-50">Create Your account</h3>
+                            <form method="POST" action="/signup" id="signup-form">
+                              <div class="ms-input2-box mb-25">
+                                  <input type="text" placeholder="Name" name="name">
+                              </div>
+                              <div class="ms-input2-box mb-25">
+                                  <input type="email" placeholder="Email" name="email">
+                              </div>
+                              <div class="ms-input2-box mb-25">
+                                  <input type="text" placeholder="Phone no" name="phone">
+                              </div>
+                              <div class="ms-input2-box mb-25">
+                                  <input type="date" placeholder="Date of Birth" name="dob">
+                              </div>
+                              <div class="ms-input2-box mb-50">
+                                  <input type="password" placeholder="Password" name="password">
+                              </div>
+                              <div class="ms-submit-btn mb-40">
+                                  <button class="unfill__btn d-block w-100" type="submit">Create Account</button>
+                              </div>
+                          </form> 
+                               <div class="ms-divided-btn mb-45">
+                                    <span>or</span>
+                                </div>
+                                <div class="ms-fb mb-40">
+                                    <button class="ms-fb-btn" type="submit"><i class="fa-brands fa-facebook"></i>
+                                        Log in with facebook</button>
+                                </div>
+                                <div class="ms-not-account mb-35">
+                                    <p>Already have an account? <a href="/lo">Log
+                                            in</a></p>
+                                </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- login Area End Here  -->
+
+            <!-- Partner Area Start Here  -->
+            <div class="ms-partner-area fix pt-80 pb-130">
+                <div class="container">
+                    <div class="swiper-container ms-partner-active">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="static/img/partner/partner-01.png" alt="partner image">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="static/img/partner/partner-02.png" alt="partner image">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="static/img/partner/partner-03.png" alt="partner image">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="static/img/partner/partner-04.png" alt="partner image">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="static/img/partner/partner-05.png" alt="partner image">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="static/img/partner/partner-04.png" alt="partner image">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="static/img/partner/partner-01.png" alt="partner image">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="static/img/partner/partner-02.png" alt="partner image">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="static/img/partner/partner-03.png" alt="partner image">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="static/img/partner/partner-04.png" alt="partner image">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="static/img/partner/partner-05.png" alt="partner image">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="static/img/partner/partner-04.png" alt="partner image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Partner Area End Here  -->
+
+        </main>
+        <!-- Footer Area Start Here  -->
+        <footer>
+            <div class="ms-footer3-wrap include__bg zindex-1 p-relative" data-background="static/img/bg/footer-bg.png">
+                <div class="ms-overlay ms-overlay5 p-absolute zindex--1"></div>
+                <div class="ms-footer3-top pt-130">
+                    <div class="container">
+                        <div class="ms-border2">
+                            <div class="ms-footer2-logo mb-130 mx-auto">
+                                <a href="index.html"><img src="static/img/logo/footer3-logo.png" alt="footer logo"></a>
+                            </div>
+                            <div class=" ms-footer2-top-inner ms-border1 ms-br-100 ms-bg-4 mb-65">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-6">
+                                        <div class="ms-footer2-rating three mb-10">
+                                            <h3>Excellent : 1050 Review On <a href="#"><img
+                                                        src="static/img/footer/start-01.png" alt="footer image"></a>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="ms-subscribe2-form p-relative mb-10 d-none d-sm-block">
+                                            <i class="flaticon-mail"></i>
+                                            <input type="text" placeholder="Enter your mail">
+                                            <button type="submit" class="ms-subscribe2-btn">Subscribe Now <i
+                                                    class="fa-sharp fa-solid fa-paper-plane"></i></button>
+                                        </div>
+
+                                        <div class="ms-subscribe2-mobile p-relative mb-10 d-sm-none">
+                                            <i class="flaticon-mail"></i>
+                                            <input type="text" placeholder="Enter your mail">
+                                            <button type="submit" class="ms-subscribe2-m-btn">Subscribe Now <i
+                                                    class="fa-sharp fa-solid fa-paper-plane"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-15">
+                                <div class="col-xxl-4 col-lg-5 col-md-6">
+                                    <div class="ms-footer2-widget mb-50 pr-20">
+                                        <h3 class="ms-footer2-title">Get in touch</h3>
+                                        <div class="ms-footer2-contact border-0 pb-40">
+                                            <ul>
+                                                <li><i class="flaticon-pin"></i><a href="#">936 Kuhl Avenue,
+                                                        Norcross,
+                                                        Georgia
+                                                        GA 5983, United State</a></li>
+                                                <li><i class="flaticon-phone-call"></i><a href="tel:03332920560">0333
+                                                        292
+                                                        0560</a></li>
+                                                <li><i class="flaticon-mail"></i><a
+                                                        href="mailto:info@musiclycontact.com">info@musiclycontact.com</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="ms-footer-social mb-15">
+                                            <a href="https://www.instagram.com/" title="Instagram"
+                                                target="_blank">IN</a>
+                                            <a href="https://twitter.com/" title="Twitter" target="_blank">TW</a>
+                                            <a href="https://www.facebook.com/" title="Facebook" target="_blank">FB</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xxl-2 col-lg-3 col-md-6">
+                                    <div class="ms-footer2-widget ms-footer2-widget2 mb-50">
+                                        <h3 class="ms-footer2-title">Company</h3>
+                                        <ul>
+                                            <li><a href="about.html">About us</a></li>
+                                            <li><a href="contact.html">Contact us</a></li>
+                                            <li><a href="contact.html">Terms & Policy</a></li>
+                                            <li><a href="contact.html">Help & Support</a></li>
+                                            <li><a href="#">Press</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-xxl-2 col-lg-3 col-md-6">
+                                    <div class="ms-footer2-widget mb-50">
+                                        <h3 class="ms-footer2-title">Local Band Group</h3>
+                                        <ul>
+                                            <li><a href="#">The Tricks</a></li>
+                                            <li><a href="#">Sound City</a></li>
+                                            <li><a href="#">Big Teaser</a></li>
+                                            <li><a href="#">The New Tones</a></li>
+                                            <li><a href="#">Halos Music</a></li>
+                                            <li><a href="#">Soho Soul</a></li>
+                                            <li><a href="#">Atlantic</a></li>
+                                            <li><a href="#">The Fiction</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-xxl-2 col-lg-3 col-md-6">
+                                    <div class="ms-footer2-widget mb-50">
+                                        <h3 class="ms-footer2-title">Trending Genres</h3>
+                                        <ul>
+                                            <li><a href="genres-details.html">Wedding Bands</a></li>
+                                            <li><a href="genres-details.html">Jazz & Swing</a></li>
+                                            <li><a href="genres-details.html">Musician</a></li>
+                                            <li><a href="genres-details.html">Classical Musician</a></li>
+                                            <li><a href="genres-details.html">Corporate Party</a></li>
+                                            <li><a href="genres-details.html">Premiere Party Band</a></li>
+                                            <li><a href="genres-details.html">DJ Songs</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-xxl-2 col-lg-3 col-md-6">
+                                    <div class="ms-footer2-widget mb-50">
+                                        <h3 class="ms-footer2-title">Country We Serve</h3>
+                                        <ul>
+                                            <li><a href="#">United State</a></li>
+                                            <li><a href="#">Canada</a></li>
+                                            <li><a href="#">Australia</a></li>
+                                            <li><a href="#">China</a></li>
+                                            <li><a href="#">South Korea</a></li>
+                                            <li><a href="#">Japan</a></li>
+                                            <li><a href="#">Singapore</a></li>
+                                            <li><a href="#">Hong Kong</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ms-footer-bottom">
+                    <div class="container">
+                        <div class="ms-footer-bottom-wrap text-center pt-35 pb-20">
+                            <div class="ms-footer-copy">
+                                <p>© Musicly 2023, All Rights Reserved</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer Area End Here  -->
+    </div>
+
+    <!-- Back to top start -->
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+    <!-- Back to top end -->
+
+    <!-- JS here -->
+    <script src="static/app/js/jquery-3.6.0.min.js"></script>
+    <script src="static/app/js/waypoints.min.js"></script>
+    <script src="static/app/js/bootstrap.bundle.min.js"></script>
+    <script src="static/app/js/nice-select.min.js"></script>
+    <script src="static/app/js/meanmenu.min.js"></script>
+    <script src="static/app/js/swiper-bundle.min.js"></script>
+    <script src="static/app/js/slick.min.js"></script>
+    <script src="static/app/js/magnific-popup.min.js"></script>
+    <script src="static/app/js/backtotop.js"></script>
+    <script src="static/app/js/ajax-form.js"></script>
+    <script src="static/app/js/jquery-ui.min.js"></script>
+    <script src="static/app/js/gsap.min.js"></script>
+    <script src="static/app/js/ScrollToPlugin.min.js"></script>
+    <script src="static/app/js/SplitText.min.js"></script>
+    <script src="static/app/js/ScrollTrigger.min.js"></script>
+    <script src="static/app/js/jquery.jplayer.min.js"></script>
+    <script src="static/app/js/jplayer.playlist.js"></script>
+    <script src="static/app/js/settings.js"></script>
+    <script src="static/app/js/main.js"></script>
+
+          <script>
+        function showOTPFields() {
+            var form = document.getElementById("signup-form");
+            var name = form.elements["name"].value;
+            var email = form.elements["email"].value;
+            var verifyEmail = form.elements["verify_email"].value;
+            var phone = form.elements["phone"].value;
+            var verifyPhone = form.elements["verify_phone"].value;
+            var password = form.elements["password"].value;
+            var confirmPassword = form.elements["confirm_password"].value;
+
+            if (
+                name &&
+                email &&
+                verifyEmail &&
+                phone &&
+                verifyPhone &&
+                password &&
+                confirmPassword &&
+                email === verifyEmail &&
+                phone === verifyPhone
+            ) {
+                showEmailOTPField();
+                showPhoneOTPField();
+            }
+        }
+    </script>
+          <script>
+        function showEmailOTPField() {
+            document.getElementById("email-otp-field").style.display = "block";
+        }
+        
+        function showPhoneOTPField() {
+            document.getElementById("phone-otp-field").style.display = "block";
+        }
+    </script>
+
+   <style>
+     /* CSS Styles */
+      #flash-message-container {
+          position: fixed;
+          top: 0;
+          right: 0;
+          z-index: 1000; /* Adjust the z-index as needed */
+          margin: 10px;
+          width: 300px; /* Adjust the width as needed */
+      }
+      
+      .flash-message {
+          background-color: #4CAF50; /* Green background color */
+          color: white;
+          padding: 10px;
+          border-radius: 5px;
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+      }
+      
+   </style>
+</body>
+
+</html>

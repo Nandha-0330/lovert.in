@@ -1,0 +1,93 @@
+@use '../utils' as *;
+
+/* ------------------------------------------ */
+/*  02 - background css  */
+/* ------------------------------------------ */
+
+.ms-bg {
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.white-bg {
+	background-color: var(--clr-common-white);
+}
+
+.black-bg {
+	background-color: var(--clr-common-black);
+}
+
+.dark-bg {
+	background-color: var(--clr-common-heading);
+}
+
+.grey-bg {
+	background-color: var(--clr-bg-gray-1);
+}
+
+.footer-bg {
+	background-color: var(--clr-bg-footer);
+}
+
+
+.alert-bg-1 {
+	background: var(--clr-bg-18);
+}
+
+.alert-bg-2 {
+	background: var(--clr-bg-19);
+}
+
+.alert-bg-3 {
+	background: var(--clr-bg-20);
+}
+
+
+.ms-text-gradient1 {
+	background: linear-gradient(90.2deg, var(--clr-theme-1) 35.25%, #753EBA 51.2%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-fill-color: transparent;
+}
+
+.ms-text-gradient2 {
+	background: linear-gradient(90.62deg, var(--clr-bg-3) 62.36%, var(--clr-theme-1) 88.12%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-fill-color: transparent;
+}
+
+.ms-color-1 {
+	color: var(--clr-text-6);
+}
+
+.ms-bg-1 {
+	background-color: var(--clr-bg-1);
+}
+
+.ms-bg-2 {
+	background-color: var(--clr-bg-2);
+}
+
+.ms-bg-3 {
+	background-color: var(--clr-bg-3);
+}
+
+.ms-bg-4 {
+	background-color: var(--clr-bg-4);
+}
+
+.ms-bg-5 {
+	background-color: var(--clr-bg-5);
+}
+
+.ms-bg-body {
+	background-color: var(--clr-common-body);
+}
+
+.ms-bg-6 {
+	background-color: var(--clr-bg-6);
+}

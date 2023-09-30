@@ -1,0 +1,675 @@
+@use '../utils' as *;
+
+/*-----------------------------------------------------------------------------------
+
+    Theme Name: Musicly - Music Bands and Musicians HTML5 Template
+    Author: Topylo
+    Support: https://support.bdevs.net/
+    Description: Musicly - Music Bands and Musicians HTML5 Template
+    Version: 1.0
+	Developer: Topylo Team
+
+-----------------------------------------------------------------------------------
+
+
+/* ------------------------------------------ */
+/*             TABLE OF CONTENTS
+/* ------------------------------------------ */
+/*  01 - theme css  */
+/*  02 - background css  */
+/*  03 - overlay css  */
+/*  04 - border css  */
+/*  05 - buttons css  */
+/*  06 - cursor css  */
+/*  07 - offcanvas css  */
+/*  08 - section-title css  */
+/*  09 - breadcrumb css  */
+/*  10 - search css  */
+/*  11 - carousel css  */
+/*  12 - animation css  */
+/*  13 - preloader css  */
+/*  14 - settings css  */
+/*  15 - meanmenu css  */
+/*  16 - menu css  */
+/*  17 - header css  */
+/*  18 - song css  */
+/*  19 - banner css  */
+/*  20 - scroll-text css  */
+/*  21 - popular css  */
+/*  22 - work css  */
+/*  23 - trending css  */
+/*  24 - function-brand css  */
+/*  25 - event css  */
+/*  26 - partner css  */
+/*  27 - testimonial css  */
+/*  28 - news css  */
+/*  29 - cta css  */
+/*  30 - app-download css  */
+/*  31 - about css  */
+/*  32 - choose css  */
+/*  33 - team css  */
+/*  34 - faq css  */
+/*  35 - genres css  */
+/*  36 - booking css  */
+/*  37 - shop css  */
+/*  38 - contact css  */
+/*  39 - footer css  */
+/* ------------------------------------------ */
+
+
+
+
+/* ------------------------------------------ */
+/*  01 - theme css  */
+/* ------------------------------------------ */
+
+// Google Fonts
+
+@import url('https://fonts.googleapis.com/css2?family=Oregano&family=Poppins:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/*---------------------------------
+    Typography css start 
+---------------------------------*/
+body {
+	font-family: var(--bd-ff-body);
+	font-size: var(--bd-fs-body);
+	font-weight: normal;
+	color: var(--clr-common-body-text);
+	line-height: 26px;
+	background: var(--clr-common-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--bd-ff-heading);
+	color: var(--clr-common-heading);
+	margin-top: 0px;
+	line-height: 1.2;
+	margin-bottom: 0;
+	font-weight: var(--bd-fw-sbold);
+	text-transform: capitalize;
+}
+
+h1 {
+	font-size: var(--bd-fs-h1);
+}
+
+h2 {
+	font-size: var(--bd-fs-h2);
+}
+
+h3 {
+	font-size: var(--bd-fs-h3);
+	;
+}
+
+h4 {
+	font-size: var(--bd-fs-h4);
+}
+
+h5 {
+	font-size: var(--bd-fs-h5);
+}
+
+h6 {
+	font-size: var(--bd-fs-h6);
+}
+
+ul {
+	margin: 0px;
+	padding: 0px;
+}
+
+p {
+	font-size: var(--bd-fs-p);
+	font-weight: var(--bd-fw-normal);
+	color: var(--clr-text-5);
+	margin-bottom: 15px;
+	line-height: 26px;
+	text-transform: capitalize;
+}
+
+a {
+	text-decoration: none;
+}
+
+.transition-03 {
+	@include transition(0.3s);
+}
+
+a:focus,
+.button:focus {
+	text-decoration: none;
+	outline: none;
+}
+
+a:focus,
+a:hover {
+	color: inherit;
+	text-decoration: none;
+}
+
+a,
+button {
+	color: inherit;
+	outline: none;
+	border: none;
+	background: transparent;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+button:focus {
+	outline: 0;
+}
+
+input {
+	outline: none;
+}
+
+input[type="color"] {
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	background: none;
+	border: 0;
+	cursor: pointer;
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	border-radius: 50%;
+}
+
+*::-moz-selection {
+	background: var(--clr-theme-1);
+	color: var(--clr-common-white);
+	text-shadow: none;
+}
+
+::-moz-selection {
+	background: var(--clr-theme-1);
+	color: var(--clr-common-white);
+	text-shadow: none;
+}
+
+::selection {
+	background: var(--clr-theme-1);
+	color: var(--clr-common-white);
+	text-shadow: none;
+}
+
+*::-moz-placeholder {
+	color: var(--clr-common-placeholder);
+	opacity: 1;
+	font-size: 15px;
+}
+
+*::placeholder {
+	color: var(--clr-common-placeholder);
+	opacity: 1;
+	font-size: 15px;
+}
+
+/*----------------------------------------
+   Flaction customize
+-----------------------------------------*/
+i[class^="flaticon-"] {
+	line-height: 1;
+	top: 2px;
+	position: relative;
+	@include transition(.3s);
+}
+
+
+/*----------------------------------------
+   Gutter customize
+-----------------------------------------*/
+.g-20 {
+	--bs-gutter-x: 20px;
+}
+
+/*---------------------------------
+    common classes css start 
+---------------------------------*/
+
+.w-img {
+	& img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
+.m-img {
+	& img {
+		max-width: 100%;
+		width: 100%;
+	}
+}
+
+.mh-200 {
+	@media #{$xxs} {
+		min-height: 200px;
+		object-fit: cover;
+	}
+}
+
+.fix {
+	overflow: hidden
+}
+
+.z-index-1 {
+	z-index: 1;
+}
+
+.z-index-11 {
+	z-index: 11;
+}
+
+.p-relative {
+	position: relative;
+}
+
+.p-absolute {
+	position: absolute;
+}
+
+.include__bg {
+	@include background();
+}
+
+.hr-1 {
+	border-top: 1px solid #414141;
+}
+
+.x-clip {
+	overflow-x: clip;
+}
+
+.ms-cp {
+	cursor: pointer;
+}
+
+span,
+a {
+	text-transform: capitalize;
+}
+
+/*----------------------------------------
+	Z Index CSS
+-----------------------------------------*/
+.zindex-1 {
+	z-index: 1;
+}
+
+.zindex--1 {
+	z-index: -1;
+}
+
+.zindex-5 {
+	z-index: 5;
+}
+
+.zindex-10 {
+	z-index: 10;
+}
+
+.zindex-50 {
+	z-index: 50;
+}
+
+.zindex-100 {
+	z-index: 100;
+}
+
+.zindex-150 {
+	z-index: 150;
+}
+
+.zindex-200 {
+	z-index: 200;
+}
+
+.zindex-500 {
+	z-index: 500;
+}
+
+.zindex-1000 {
+	z-index: 1000;
+}
+
+.zindex-99999 {
+	z-index: 99999;
+}
+
+/*----------------------------------------
+	Max Width CSS
+-----------------------------------------*/
+.ms-maw-1710 {
+	max-width: 1710px;
+}
+
+.ms-maw-1810 {
+	max-width: 1810px;
+}
+
+.ms-mw-142 {
+	max-width: 142px;
+}
+
+.ms-mih-400 {
+	min-height: 400px;
+}
+
+// Magnify popup css 
+.mfp-iframe-holder .mfp-content {
+	max-width: 1500px;
+}
+
+/*----------------------------------------
+    Progress Wrap
+-----------------------------------------*/
+
+.progress-wrap {
+	@include rtl {
+		right: auto;
+		inset-inline-start: 50px;
+
+		@media #{$xs} {
+			inset-inline-start: 15px;
+			right: auto;
+		}
+	}
+
+	@media #{$xs} {
+		right: 15px;
+		bottom: 15px;
+	}
+}
+
+/*----------------------------------------
+   Basic-pagaination
+-----------------------------------------*/
+.basic {
+	&-pagination {
+		padding: 40px 0 20px;
+
+		ul {
+			@include flexbox();
+			align-items: center;
+			gap: 10px;
+			justify-content: center;
+			flex-wrap: wrap;
+
+			@media #{$xs,$sm,$md} {
+				justify-content: start;
+			}
+
+			li {
+				list-style: none;
+
+				a,
+				.current {
+					width: 44px;
+					height: 44px;
+					border-radius: 50%;
+					position: relative;
+					color: var(--clr-border-1);
+					background: transparent;
+					border: 1px solid var(--clr-border-1);
+					display: inline-block;
+					line-height: 44px;
+					text-align: center;
+				}
+
+				a {
+					z-index: 1;
+					@include transition(0.3s);
+
+					@include rtl {
+						i {
+							@include transform(rotate(180deg));
+						}
+					}
+
+					&::before {
+						width: 100%;
+						height: 100%;
+						border-radius: 50%;
+						color: var(--clr-border-1);
+						inset-block-start: 0;
+						inset-inline-start: 0;
+						background: linear-gradient(180deg, var(--clr-theme-1) 0%, var(--clr-bg-3) 100%);
+						border-color: transparent;
+						color: var(--clr-common-white);
+						content: '';
+						position: absolute;
+						opacity: 0;
+						visibility: hidden;
+						@include transition(0.3s);
+						z-index: -1;
+					}
+
+					&:hover {
+						&::before {
+							opacity: 1;
+							visibility: visible;
+						}
+
+						color: var(--clr-common-white);
+						font-weight: 600;
+					}
+				}
+
+				.current {
+					background: linear-gradient(180deg, var(--clr-theme-1) 0%, var(--clr-bg-3) 100%);
+					border-color: transparent;
+					color: var(--clr-common-white);
+					font-weight: 600;
+				}
+			}
+		}
+	}
+}
+
+input[type="file"] {
+	color: var(--clr-text-10);
+}
+
+::-webkit-calendar-picker-indicator {
+	@include dark {
+		filter: invert(1);
+	}
+}
+
+[type="email"],
+[type="number"],
+[type="tel"],
+[type="url"] {
+	@include rtl {
+		direction: rtl;
+	}
+}
+
+.ms-xxl-none {
+	@media #{$xxl} {
+		display: none;
+	}
+}
+
+.ms-all-content-space {
+	padding-top: 130px;
+
+	@media #{$lg, $md, $sm, $xs} {
+		padding-top: 100px;
+	}
+}
+
+// date time css
+.ui-widget.ui-widget-content {
+	border: 1px solid var(--clr-border-1);
+}
+
+.ui-widget-content {
+	border: 1px solid #ddd;
+	background: var(--clr-bg-7);
+	color: #c8c8c8;
+	border-radius: 5px;
+}
+
+.ui-widget-header {
+	border-color: transparent;
+	border-bottom: 1px solid #202020;
+	background: transparent;
+	color: #333;
+	font-weight: bold;
+}
+
+.ui-widget-header {
+	color: #cecece;
+	font-weight: bold;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default,
+.ui-button,
+html .ui-button.ui-state-disabled:hover,
+html .ui-button.ui-state-disabled:active {
+	border: 1px solid #202020cf;
+	background: #000000be;
+	font-weight: normal;
+	color: #cecece;
+	border-radius: 5px;
+	text-align: center;
+	@include transition(0.3s);
+
+	&:hover {
+		background: var(--clr-theme-1);
+		color: var(--clr-common-white);
+	}
+}
+
+.ui-datepicker .ui-datepicker-prev::after {
+	font-size: 10px;
+	content: "\f053";
+	font-family: "Font Awesome 6 Pro";
+	color: #fff;
+}
+
+.ui-datepicker .ui-datepicker-next::before {
+	font-size: 10px;
+	content: "\f054";
+	font-family: "Font Awesome 6 Pro";
+	color: #fff;
+	float: right;
+}
+
+.ui-datepicker .ui-datepicker-prev {
+	inset-inline-start: 10px;
+}
+
+.ui-state-default a,
+.ui-state-default a:link,
+.ui-state-default a:visited,
+a.ui-button,
+a:link.ui-button,
+a:visited.ui-button,
+.ui-button {
+	color: #454545;
+	text-decoration: none
+}
+
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus,
+.ui-button:hover,
+.ui-button:focus {
+	border: 1px solid transparent;
+	background: transparent;
+	font-weight: normal;
+	color: #2b2b2b
+}
+
+.ui-datepicker .ui-datepicker-prev,
+.ui-datepicker .ui-datepicker-next {
+	cursor: pointer;
+}
+
+
+.ms-content-mobile-space {
+	@media #{$lg, $md, $sm, $xs} {
+		padding-top: 96px;
+	}
+}
+
+
+
+
+
+
+.mfp-wrap {
+	z-index: 999999;
+	background: var(--clr-common-body);
+}
+
+
+.nice-select {
+	padding-inset-inline-start: 0;
+	padding-right: 0;
+	padding-inline-start: 0;
+	padding-inline-end: 24px;
+
+	.current {
+		text-transform: capitalize;
+	}
+
+	@include rtl {
+		text-align: right !important;
+	}
+
+	&::after {
+		inset-inline-start: unset;
+		right: unset;
+		inset-inline-end: 0;
+	}
+
+	.list {
+		background-color: var(--clr-bg-2);
+		inset-inline-start: unset;
+		inset-inline-start: 0;
+
+		.option {
+			padding-inline-start: 20px;
+			padding-right: 20px;
+			color: var(--clr-common-body-text);
+			text-transform: capitalize;
+
+			@include rtl {
+				text-align: right;
+			}
+
+			&:hover,
+			&.focus,
+			&.selected.focus {
+				background-color: var(--clr-common-black);
+			}
+		}
+	}
+}

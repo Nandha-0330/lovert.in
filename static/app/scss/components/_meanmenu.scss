@@ -1,0 +1,45 @@
+@use '../utils' as *;
+
+/* ------------------------------------------ */
+/*  15 - meanmenu css  */
+/* ------------------------------------------ */
+
+/* Mean menu customize */
+
+.mean-container {
+	.mean-bar {
+		background: transparent;
+	}
+
+	.mean-nav {
+		margin-top: 0;
+		background: transparent;
+
+		ul {
+			li {
+				a {
+					border-top: 1px solid transparent;
+					text-transform: capitalize;
+					padding: 10px 0;
+					@include transition(0.3s);
+
+					&:hover {
+						color: var(--clr-theme-1);
+					}
+				}
+			}
+		}
+
+		&>ul {
+			display: block !important;
+		}
+	}
+
+	a.meanmenu-reveal {
+		display: none !important;
+	}
+
+	.mean-expand.mean-clicked {
+		transform: rotate(45deg);
+	}
+}

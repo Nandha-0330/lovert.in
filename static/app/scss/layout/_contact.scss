@@ -1,0 +1,733 @@
+@use '../utils' as *;
+
+/* ------------------------------------------ */
+/*  38 - contact css  */
+/* ------------------------------------------ */
+
+.ms-input-box {
+    position: relative;
+    margin-bottom: 55px;
+
+    label {
+        background: var(--clr-bg-2);
+        border-radius: 32.5px;
+        position: absolute;
+        top: -14px;
+        inset-inline-start: 60px;
+        display: inline-block;
+        padding: 2px 14px;
+        color: var(--clr-text-5);
+        font-weight: 500;
+        font-size: 15px;
+        z-index: 5;
+    }
+
+    input {
+        background: var(--clr-common-body);
+        border: 1px solid var(--clr-border-3);
+        border-radius: 32.5px;
+        height: 65px;
+        display: block;
+        width: 100%;
+        color: var(--clr-text-8);
+        padding: 0 30px;
+        @include transition(0.3s);
+
+        @media #{$xxs} {
+            padding: 0 20px;
+        }
+
+        &:focus {
+            border: 1px solid var(--clr-border-2);
+        }
+    }
+
+    textarea {
+        background: var(--clr-bg-4);
+        border: 1px solid var(--clr-border-3);
+        border-radius: 15px;
+        outline: 0;
+        height: 175px;
+        width: 100%;
+        display: block;
+        color: var(--clr-text-8);
+        padding: 30px;
+        @include transition(0.3s);
+        resize: none;
+
+        @media #{$xxs} {
+            padding: 20px;
+        }
+
+        &:focus {
+            border: 1px solid var(--clr-border-2);
+        }
+    }
+
+    .nice-select {
+        float: none;
+        background: var(--clr-bg-4);
+        border: 1px solid var(--clr-border-3);
+        border-radius: 32.5px;
+        height: 65px;
+        line-height: 65px;
+        padding: 0 30px;
+
+        @media #{$xxs} {
+            padding: 0 20px;
+        }
+
+        &:focus {
+            border: 1px solid var(--clr-border-2);
+        }
+
+        &::after {
+            border-bottom: 2px solid var(--clr-common-body-text);
+            border-right: 2px solid var(--clr-common-body-text);
+            height: 10px;
+            inset-inline-end: 30px;
+            width: 10px;
+
+            @media #{$xxs} {
+                inset-inline-end: 20px;
+            }
+        }
+
+        .list {
+            background-color: var(--clr-common-body);
+            width: 100%;
+            border: 1px solid var(--clr-border-1);
+        }
+
+        .option:hover,
+        .option.focus,
+        .option.selected.focus {
+            background-color: var(--clr-bg-11);
+        }
+    }
+}
+
+
+// Custom Check Box 
+.ms-checkbox {
+    display: block;
+    position: relative;
+    padding-inline-start: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    a {
+        color: var(--clr-bg-1);
+        @include transition(0.3s);
+
+        &:hover {
+            color: var(--clr-theme-1);
+        }
+    }
+
+    /* Hide the browser's default checkbox */
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 20px;
+        width: 20px;
+        top: 3px;
+        inset-inline-start: 0;
+        z-index: 2;
+    }
+
+    /* Create a custom checkbox */
+    .checkmark {
+        position: absolute;
+        top: 3px;
+        inset-inline-start: 0;
+        width: 20px;
+        height: 20px;
+        border: 1px solid var(--clr-border-1);
+        border-radius: 2px;
+
+        &:hover {
+            background-color: transparent;
+        }
+    }
+
+    /* On mouse-over, add a grey background color */
+    &:hover input~.checkmark {
+        background-color: transparent;
+    }
+
+    /* When the checkbox is checked, add a blue background */
+    input:checked~.checkmark {
+        background-color: transparent;
+    }
+
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+        inset-inline-start: 7px;
+        top: 5px;
+        width: 5px;
+        height: 9px;
+        border: solid var(--clr-common-white);
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+
+    input:checked~.checkmark::after {
+        display: block !important;
+    }
+}
+
+
+.ms-model1 {
+    .modal-content {
+        background: var(--clr-bg-2);
+        border-radius: 15px;
+    }
+
+    .modal-dialog {
+        max-width: 1156px;
+    }
+
+    .modal-body {
+        padding: 0;
+    }
+}
+
+.ms-model2 {
+    .modal-content {
+        background: var(--clr-bg-2);
+        border-radius: 15px;
+    }
+
+    .modal-dialog {
+        max-width: 855px;
+    }
+
+    .modal-body {
+        padding: 0;
+    }
+}
+
+.ms-genres-model-content {
+    padding: 40px;
+
+    @media #{$xs} {
+        padding: 40px 20px;
+    }
+
+    .ms-close-btn {
+        position: absolute;
+        right: 40px;
+        top: 40px;
+
+        @media #{$xs} {
+            right: 20px;
+            top: 20px;
+        }
+    }
+}
+
+.ms-input-box.two {
+    margin-bottom: 25px;
+}
+
+.ms-review-popup-title-wrap {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 40% 50% 10%;
+    gap: 10px;
+
+    @media #{$xs} {
+        grid-template-columns: auto;
+    }
+}
+
+.ms-review-popup-item {
+    .ms-review-num {
+        color: var(--clr-common-white);
+        font-weight: 600;
+        font-size: 20px;
+        margin-inline-end: 13px;
+    }
+
+    .ms-review-star {
+        i {
+            color: var(--clr-bg-3);
+            top: -1px;
+
+            &:last-child {
+                &.unrate {
+                    color: var(--clr-border-1);
+                }
+            }
+        }
+    }
+}
+
+.df-rating {
+    display: inline-block;
+    position: relative;
+}
+
+.df-rating {
+    label {
+        cursor: pointer;
+        padding-inline-end: 15px;
+        margin-inline-end: 15px;
+        cursor: pointer;
+        position: relative;
+
+        &:last-child {
+            padding-inline-end: 0;
+            margin-inline-end: 0;
+        }
+
+        .icon {
+            float: left;
+            color: transparent;
+            font-size: 20px;
+            color: var(--clr-border-1);
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 1px;
+            height: 12px;
+            background: var(--clr-border-1);
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0;
+        }
+
+        &:last-child {
+            &::before {
+                display: none;
+            }
+        }
+
+    }
+
+    input {
+        position: absolute;
+        top: 0;
+        inset-inline-start: 0;
+        opacity: 0;
+    }
+}
+
+
+.df-rating:not(:hover) label input:checked~.icon,
+.df-rating:hover label:hover input~.icon {
+    color: var(--clr-bg-3);
+}
+
+.df-rating label input:focus:not(:checked)~.icon:last-child {
+    color: var(--clr-border-1);
+    text-shadow: 0 0 5px var(--clr-bg-3);
+}
+
+.ms-review-submit-btn {
+    .unfill__btn {
+        padding: 0 70px;
+    }
+}
+
+.ms-map-area {
+    iframe {
+        width: 100%;
+        height: 800px;
+
+        @media #{$md} {
+            height: 600px;
+        }
+
+        @media #{$sm,$xs} {
+            height: 500px;
+        }
+
+        @media #{$xxs} {
+            height: 400px;
+        }
+    }
+}
+
+
+.ms-input2-box {
+
+    input,
+    textarea {
+        width: 100%;
+        background: var(--clr-bg-4);
+        border: 1px solid var(--clr-border-3);
+        border-radius: 32.5px;
+        height: 65px;
+        color: var(--clr-text-8);
+        padding: 0 30px;
+        @include transition(0.3s);
+        resize: none;
+
+        @media #{$xxs} {
+            padding: 0 20px;
+        }
+
+        &:focus {
+            border: 1px solid var(--clr-border-2);
+        }
+    }
+
+    textarea {
+        resize: none;
+        outline: 0;
+        padding: 20px 30px;
+        min-height: 175px;
+        border-radius: 16px;
+
+        @media #{$xxs} {
+            padding: 20px 20px;
+        }
+
+        &:focus {
+            border: 1px solid var(--clr-border-2);
+        }
+    }
+
+    .ms-input2-search {
+        position: absolute;
+        top: 50%;
+        @include transform(translateY(-50%));
+        font-size: 20px;
+        color: var(--clr-common-white);
+        inset-inline-end: 30px;
+
+        &:hover {
+            color: var(--clr-theme-1);
+        }
+    }
+}
+
+.ms-contact-space {
+    padding: 40px;
+    border-radius: 15px;
+
+    @media #{$xs} {
+        padding: 30px 20px;
+    }
+}
+
+.ms-contact-content {
+    position: absolute;
+    bottom: 35px;
+    z-index: 1;
+    left: 0;
+    right: 0;
+}
+
+.ms-contact-map-content {
+    ul {
+        li {
+            @include transition(0.5s);
+
+            &:hover {
+                color: var(--clr-common-white);
+            }
+        }
+    }
+}
+
+.ms-contact-map-item-wrapper {
+    height: 155px;
+    position: relative;
+
+    @media (hover: none) {
+        height: auto;
+    }
+
+    &:hover {
+
+        .ms-contact-map-item {
+            transform: translateY(calc(-100% + 155px));
+
+            @media (hover: none) {
+                transform: none;
+            }
+
+        }
+    }
+}
+
+.ms-contact-map-item {
+    padding: 40px 90px 35px 30px;
+    display: inline-block;
+    @include transition(0.3s);
+    position: absolute;
+    top: 0;
+    inset-inline-start: 0;
+
+    @media #{$xl, $lg, $md, $sm, $xs} {
+        padding: 40px 30px 35px 30px;
+    }
+
+    @media (hover: none) {
+        position: static;
+    }
+}
+
+.ms-contact-flag {
+    display: inline-block;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.ms-contact-map-area {
+    overflow: hidden;
+    z-index: 5;
+    position: relative;
+
+    @media #{$md, $sm, $xs} {
+        padding-bottom: 0;
+    }
+}
+
+.ms-contact-map-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+
+    @media #{$md} {
+        position: unset;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media #{$sm, $xs} {
+        position: unset;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.ms-contact-map-space {
+    @media #{$md} {
+        padding-top: 130px;
+        padding-bottom: 130px;
+    }
+
+    @media #{$sm, $xs} {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+}
+
+
+// login css 
+.ms-login-space {
+    padding: 60px 40px;
+    border-radius: 15px;
+
+    @media #{$xxs} {
+        padding: 40px 20px;
+    }
+}
+
+.ms-divided-btn {
+    text-align: center;
+    position: relative;
+
+    span {
+        background: var(--clr-bg-2);
+        padding: 0 20px;
+        position: relative;
+        color: var(--clr-text-5);
+        font-weight: 600;
+    }
+
+    &::before {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 2px;
+        background: var(--clr-border-1);
+        inset-inline-start: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+
+.ms-not-account p {
+    color: var(--clr-common-body-text);
+    font-weight: 500;
+    font-size: 15px;
+
+    a {
+        @include transition(0.3s);
+        color: var(--clr-bg-1);
+
+        &:hover {
+            color: var(--clr-theme-1);
+        }
+    }
+}
+
+.ms-forget-pass {
+    a {
+        font-weight: 500;
+        font-size: 15px;
+        color: var(--clr-common-body-text);
+        @include transition(0.3s);
+
+        &:hover {
+            color: var(--clr-theme-1);
+        }
+    }
+}
+
+.ms-maxw-510 {
+    max-width: 510px;
+}
+
+.ms-login-grid {
+    display: grid;
+    grid-template-columns: 200px auto;
+}
+
+.ms-login-tab-btn {
+    .nav-link {
+        font-size: 18px;
+        color: var(--clr-common-white);
+        text-transform: capitalize;
+        background: var(--clr-bg-4);
+        border: 1px solid var(--clr-border-3);
+        border-radius: 32.5px;
+        height: 45px;
+        padding: 0 26px;
+        white-space: nowrap;
+
+        &.active {
+            background: var(--clr-theme-1);
+        }
+    }
+
+    .nav {
+        transform: rotate(-90deg);
+        flex-wrap: nowrap;
+        margin-top: 150px;
+        gap: 15px;
+    }
+}
+
+
+// join css
+.ms-join-space {
+    opacity: 0.95;
+    border: 1px solid var(--clr-border-1);
+    border-radius: 15px;
+    padding: 60px;
+    margin-top: 190px;
+
+    @media #{$sm,$xs} {
+        padding: 40px 30px;
+        margin-top: 120px;
+    }
+
+    @media #{$xxs} {
+        padding: 30px 20px;
+    }
+}
+
+.ms-input-box.style-2 {
+    margin-bottom: 25px;
+
+    label {
+        position: inherit;
+        padding: 0;
+        top: 0;
+        inset-inline-start: 0;
+        margin-bottom: 20px;
+    }
+}
+
+.ms-upload-img {
+    display: flex;
+    align-items: center;
+    gap: 23px;
+}
+
+.ms-upload-item {
+    width: 90px;
+    height: 83px;
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.ms-upload-file {
+    width: 90px;
+    height: 83px;
+    position: relative;
+    background: rgba(13, 13, 13, 0.5);
+    border: 1px dashed var(--clr-border-3);
+    border-radius: 15px;
+    text-align: center;
+    padding-top: 28px;
+    @include transition(0.3s);
+
+    &:hover {
+        border-color: var(--clr-common-white);
+
+        i {
+            color: var(--clr-common-white);
+        }
+    }
+
+    i {
+        color: var(--clr-border-1);
+        font-size: 17px;
+        @include transition(0.3s);
+    }
+
+    input {
+        position: absolute;
+        top: 0;
+        inset-inline-start: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        opacity: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 1;
+    }
+}
+
+.ms-input-box-file {
+    label {
+        color: var(--clr-text-5);
+        font-weight: 500;
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+}
+
+.ms-join-img-grid {
+    display: grid;
+    grid-template-columns: auto 600px auto;
+    justify-content: space-between;
+}
+
+.ms-join-position {
+    inset-inline-start: 0;
+    right: 0;
+    width: 100%;
+}

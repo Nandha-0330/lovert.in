@@ -1,0 +1,277 @@
+@use '../utils' as *;
+
+/* ------------------------------------------ */
+/*  27 - testimonial css  */
+/* ------------------------------------------ */
+.ms-tm-border {
+	border: 2px solid var(--clr-border-1);
+	border-radius: 15px;
+}
+
+.ms-tm-quotation i {
+	font-size: 65px;
+	text-align: right;
+}
+
+.ms-tm-bg-shape {
+	position: absolute;
+	background: conic-gradient(from -36.81deg at 50% 50%, #75D7FF 0deg, var(--clr-text-10) 360deg);
+	width: 260px;
+	height: 260px;
+	z-index: -1;
+	border-radius: 50%;
+	bottom: 0;
+
+	@media #{$xs} {
+		width: 240px;
+		height: 240px;
+	}
+}
+
+.ms-tm-signature {
+	position: absolute;
+	bottom: 20px;
+	inset-inline-start: -18px;
+}
+
+.ms-tm-space {
+	padding-top: 55px;
+	margin-inline: 65px 0;
+	padding-bottom: 30px;
+	max-width: 500px;
+
+	@media #{$sm} {
+		margin-inline: 40px 0;
+	}
+
+	@media #{$xs} {
+		margin-inline: 30px 0;
+	}
+
+	@media #{$xxs} {
+		margin-inline: 20px 0;
+	}
+}
+
+.ms-tm-img1 {
+	inset-inline-start: 125px;
+	top: 0;
+	max-width: 30px;
+	filter: blur(1px);
+	@include border-radius(50%);
+	overflow: hidden;
+}
+
+.ms-tm-img2 {
+	max-width: 55px;
+	inset-inline-start: 275px;
+	top: 31px;
+	@include border-radius(50%);
+	overflow: hidden;
+}
+
+.ms-tm-img3 {
+	inset-inline-end: 51px;
+	top: 50%;
+	transform: translateY(-50%);
+	max-width: 80px;
+	@include border-radius(50%);
+	overflow: hidden;
+}
+
+.ms-tm-img5 {
+	max-width: 36px;
+	bottom: 0;
+	inset-inline-start: 0px;
+	@include border-radius(50%);
+	overflow: hidden;
+}
+
+.ms-tm-img4 {
+	max-width: 55px;
+	inset-inline-start: 275px;
+	bottom: 10px;
+	@include border-radius(50%);
+	overflow: hidden;
+}
+
+.ms-tm-slick-item {
+	padding-top: 10px;
+
+	p {
+		text-transform: capitalize;
+		font-size: 17px;
+		font-family: var(--bd-ff-heading);
+		line-height: 1.6;
+		font-weight: 500;
+		margin-bottom: 45px;
+	}
+}
+
+.ms-tm-author-title {
+	font-size: 18px;
+	color: var(--clr-common-white);
+	margin-bottom: 7px;
+}
+
+.ms-tm-dots-horizontal ul {
+	display: flex;
+	gap: 15px;
+
+	li {
+		display: inline-block;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
+
+.ms-tm-content-space {
+	padding-inline-end: 60px;
+	padding-inline-start: 107px;
+
+	@media #{$xl, $lg, $md} {
+		padding-inline-start: 60px;
+	}
+
+	@media #{$sm} {
+		padding-inline-start: 40px;
+		padding-inline-end: 40px;
+	}
+
+	@media #{$xs} {
+		padding-inline-start: 30px;
+		padding-inline-end: 30px;
+	}
+
+	@media #{$xxs} {
+		padding-inline-start: 20px;
+		padding-inline-end: 20px;
+	}
+}
+
+
+// testimonial 2 css
+.ms-tm2-author-img {
+	width: 270px;
+	height: 280px;
+	overflow: hidden;
+	border-radius: 50%;
+
+	img {
+		width: 100%;
+	}
+}
+
+.ms-tm2-signature {
+	position: absolute;
+	bottom: 0;
+	inset-inline-start: 0;
+	right: 0;
+	margin: auto;
+}
+
+.ms-tm2-quotation i {
+	font-size: 40px;
+	color: var(--clr-common-white);
+}
+
+.ms-tm2-text {
+	font-size: 22px;
+	color: var(--clr-common-body-text);
+	line-height: 35px;
+
+	@media #{$sm,$xs} {
+		font-size: 19px;
+	}
+
+	@media #{$xxs} {
+		font-size: 16px;
+	}
+}
+
+.ms-tm2-name {
+	color: #F7426F;
+	font-weight: 600;
+	font-size: 20px;
+	display: inline-block;
+	position: relative;
+	padding-inline-end: 35px;
+	margin-inline-end: 10px;
+}
+
+.ms-tm2-name::after {
+	content: '';
+	top: 50%;
+	inset-inline-end: 0;
+	width: 20px;
+	height: 1px;
+	background-color: #525252;
+	position: absolute;
+}
+
+.ms-tm2-img1 img {
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+.ms-tm2-shadow {
+	opacity: 0.3;
+	filter: drop-shadow(0px 4px 100px rgba(248, 122, 88, 0.25));
+}
+
+.ms-tm2-img1 {
+	top: 0;
+	inset-inline-start: 0;
+	width: 70px;
+	height: 70px;
+
+}
+
+.ms-tm2-img2 {
+	top: 25%;
+	inset-inline-start: 185px;
+	width: 125px;
+	height: 125px;
+
+	@media #{$lg} {
+		inset-inline-start: 80px;
+	}
+}
+
+.ms-tm2-img3 {
+	top: 66%;
+	width: 100px;
+	height: 100px;
+}
+
+.ms-tm2-img4 {
+	inset-inline-end: 0;
+	width: 70px;
+	height: 70px;
+	top: 0;
+}
+
+.ms-tm2-img5 {
+	top: 25%;
+	inset-inline-end: 185px;
+	width: 125px;
+	height: 125px;
+
+	@media #{$lg} {
+		inset-inline-end: 80px;
+	}
+}
+
+.ms-tm2-img6 {
+	top: 66%;
+	width: 100px;
+	height: 100px;
+	inset-inline-end: 0;
+}
+
+.ms-tm2-line {
+	top: 53%;
+	transform: translateY(-50%) rotate(2deg);
+}

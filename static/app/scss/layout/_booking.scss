@@ -1,0 +1,59 @@
+@use '../utils' as *;
+
+/* ------------------------------------------ */
+/*  36 - booking css  */
+/* ------------------------------------------ */
+
+.ms-booking-item {
+	background: var(--clr-bg-4);
+	border-radius: 15px;
+	padding: 35px 40px;
+	position: relative;
+	overflow: hidden;
+	border: 1px solid transparent;
+	@include transition(0.3s);
+
+	@media #{$xxs} {
+		padding: 20px 20px;
+	}
+
+	&:hover {
+		border-color: var(--clr-border-2);
+		@include transform(translateY(-5px));
+	}
+
+	h4 {
+		font-weight: 600;
+		font-size: 20px;
+		color: var(--clr-common-white);
+		margin-bottom: 25px;
+		padding-inline-end: 30px;
+	}
+
+	p {
+		margin-bottom: 0;
+	}
+}
+
+.ms-booking-price {
+	position: absolute;
+	background: var(--clr-bg-3);
+	display: inline-block;
+	min-width: 200px;
+	text-align: center;
+	color: var(--clr-bg-4);
+	font-weight: 500;
+	inset-inline-end: -50px;
+	top: 25px;
+	transform: rotate(42deg);
+	padding: 5px 0;
+
+	@media #{$xxs} {
+		inset-inline-end: -60px;
+		top: 15px;
+	}
+
+	@include rtl {
+		transform: rotate(-42deg);
+	}
+}

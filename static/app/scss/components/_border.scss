@@ -1,0 +1,68 @@
+@use '../utils' as *;
+
+/* ------------------------------------------ */
+/*  04 - border css  */
+/* ------------------------------------------ */
+
+/*----------------------------------------
+	Border Color CSS
+-----------------------------------------*/
+.ms-border1 {
+	border: 1px solid var(--clr-border-3);
+}
+
+.ms-border2 {
+	border-bottom: 1px solid var(--clr-border-1);
+}
+
+.ms-border3 {
+	border-bottom: 1px solid var(--clr-theme-1);
+}
+
+.ms-border4 {
+	border-bottom: 1px solid var(--clr-border-1);
+}
+
+.ms-border5 {
+	border-top: 1px solid var(--clr-border-1);
+}
+
+
+/*----------------------------------------
+	Border Radius CSS
+-----------------------------------------*/
+.ms-br-15 {
+	@include border-radius(15px);
+
+	img {
+		@include border-radius(15px);
+	}
+}
+
+.ms-br-20 {
+	@include border-radius(20px);
+
+	img {
+		@include border-radius(20px);
+	}
+}
+
+.ms-br-100 {
+	@include border-radius(100px);
+
+	img {
+		@include border-radius(100px);
+	}
+}
+
+.ms-br-30 {
+	@include border-radius(30px);
+
+	img {
+		@include border-radius(30px);
+	}
+}
+
+.br-15 {
+	@include border-radius(15px);
+}

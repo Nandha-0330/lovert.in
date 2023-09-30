@@ -1,0 +1,516 @@
+@use '../utils' as *;
+
+/* ------------------------------------------ */
+/*  39 - footer css  */
+/* ------------------------------------------ */
+
+.ms-footer-overlay {
+    position: relative;
+
+    &::after {
+        background: var(--clr-bg-2);
+        content: "";
+        width: 100%;
+        height: 100%;
+        inset-inline-start: 0;
+        top: 0;
+        z-index: -1;
+        position: absolute;
+        opacity: 0.85;
+    }
+
+    &.two {
+        &::after {
+            background: var(--clr-bg-2);
+        }
+    }
+}
+
+.ms-footer-title {
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--clr-common-white);
+    position: relative;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    text-transform: capitalize;
+    line-height: 1;
+
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        inset-inline-start: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(96.81deg, var(--clr-theme-1), var(--clr-theme-1));
+        width: 100px;
+    }
+}
+
+.ms-footer-widget {
+    ul {
+        li {
+            list-style: none;
+            margin-bottom: 10px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            a {
+                color: var(--clr-text-5);
+                position: relative;
+                text-transform: capitalize;
+                @include transition(0.3s);
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    inset-inline-start: auto;
+                    width: 0;
+                    height: 1px;
+                    inset-inline-end: 0;
+                    background: var(--clr-common-white);
+                    @include transition(0.3s);
+                }
+
+                &:hover {
+                    color: var(--clr-common-white);
+                    letter-spacing: 1px;
+
+                    &::after {
+                        width: 100%;
+                        inset-inline-start: 0;
+                        inset-inline-end: auto;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.ms-subscribe-form {
+    position: relative;
+
+    &>i {
+        font-size: 20px;
+        position: absolute;
+        top: 55%;
+        transform: translateY(-50%);
+        inset-inline-start: 25px;
+    }
+
+    input {
+        background: var(--clr-bg-4);
+        border-radius: 8px;
+        height: 72px;
+        color: var(--clr-text-5);
+        display: inline-block;
+        width: 100%;
+        padding-inline-start: 66px;
+        padding-inline-end: 80px;
+        border: 1px solid transparent;
+        @include transition(0.3s);
+
+        &::-moz-placeholder {
+            color: var(--clr-common-placeholder2);
+        }
+
+        &::placeholder {
+            color: var(--clr-common-placeholder2);
+        }
+
+        &:focus {
+            border-color: var(--clr-text-9)30;
+        }
+    }
+}
+
+.ms-subscribe-btn {
+    position: absolute;
+    top: 55%;
+    inset-inline-end: 25px;
+    padding-inline-start: 25px;
+    transform: translateY(-50%);
+
+
+    i {
+        color: var(--clr-text-5);
+        font-size: 26px;
+        @include transition(0.3s);
+    }
+
+    &:hover {
+        i {
+            color: var(--clr-theme-1);
+        }
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset-inline-start: 0;
+        width: 1px;
+        height: 30px;
+        background: var(--clr-common-placeholder2);
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+.ms-footer-logo {
+    max-width: 140px;
+
+    img {
+        width: 100%;
+    }
+}
+
+.ms-footer-border {
+    border-bottom: 1px solid var(--clr-border-1);
+}
+
+.ms-footer-warning {
+    p {
+        font-size: 15px;
+    }
+}
+
+
+.ms-footer-social {
+    display: flex;
+    gap: 10px 40px;
+
+    a {
+        font-weight: 500;
+        font-size: 15px;
+        color: var(--clr-text-5);
+        position: relative;
+        padding-bottom: 10px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: 0px;
+            left: 0;
+            width: 4px;
+            height: 4px;
+            background: var(--clr-text-5);
+            border-radius: 50%;
+            right: 0;
+            margin: auto;
+        }
+
+        &:hover {
+            color: var(--clr-theme-1);
+
+            &::before {
+                background: var(--clr-theme-1);
+            }
+        }
+    }
+}
+
+
+// footer 2 css 
+.ms-footer2-title {
+    font-weight: 500;
+    font-size: 18px;
+    color: #D9D9D9;
+    margin-bottom: 43px;
+    text-transform: capitalize;
+    line-height: 1;
+
+    @media #{$xl, $lg, $md, $sm, $xs} {
+        margin-bottom: 30px;
+    }
+}
+
+.ms-footer2-widget {
+    ul {
+        li {
+            list-style: none;
+            margin-bottom: 10px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            a {
+                color: var(--clr-common-body-text);
+                position: relative;
+                text-transform: capitalize;
+                @include transition(0.3s);
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    inset-inline-start: 0;
+                    width: 0;
+                    height: 2px;
+                    background: var(--clr-common-white);
+                    @include transition(0.3s);
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+
+                &:hover {
+                    color: var(--clr-common-white);
+                    padding-inline-start: 18px;
+
+                    &::after {
+                        width: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.ms-subscribe2-form {
+    &>i {
+        font-size: 20px;
+        position: absolute;
+        top: 53%;
+        transform: translateY(-50%);
+        inset-inline-start: 25px;
+    }
+
+    input {
+        background: var(--clr-bg-4);
+        border: 0;
+        height: 60px;
+        color: var(--clr-text-5);
+        display: inline-block;
+        width: 100%;
+        padding-inline-start: 66px;
+        padding-inline-end: 170px;
+        border-bottom: 1px solid transparent;
+
+        @media #{$md,$sm,$xs} {
+            border: 1px solid rgba(128, 128, 128, 0.3411764706);
+            border-radius: 8px;
+            padding-inline-end: 185px;
+        }
+
+        &::-moz-placeholder {
+            color: var(--clr-common-placeholder2);
+        }
+
+        &::placeholder {
+            color: var(--clr-common-placeholder2);
+        }
+    }
+}
+
+.ms-subscribe2-btn {
+    position: absolute;
+    top: 50%;
+    inset-inline-end: 0;
+    padding-inline-start: 25px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--clr-common-white);
+    @include transition(0.3s);
+
+    @media #{$md,$sm,$xs} {
+        inset-inline-end: 20px;
+    }
+
+    i {
+        color: var(--clr-bg-1);
+        font-size: 26px;
+        @include transition(0.3s);
+        margin-inline-start: 15px;
+    }
+
+    &:hover {
+        i {
+            color: var(--clr-theme-1);
+        }
+
+        color: var(--clr-theme-1);
+    }
+}
+
+.ms-subscribe2-mobile {
+    input {
+        height: 60px;
+        background: transparent;
+        border: 1px solid #80808057;
+        color: var(--clr-common-white);
+        border-radius: 8px;
+        display: block;
+        width: 100%;
+        padding-inline-start: 50px;
+        padding-inline-end: 20px;
+        margin-bottom: 15px;
+    }
+
+    &>i {
+        position: absolute;
+        top: 22px;
+        inset-inline-start: 20px;
+    }
+}
+
+
+.ms-subscribe2-m-btn {
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--clr-common-white);
+    margin-bottom: 5px;
+    @include transition(0.3s);
+
+    i {
+        margin-inline-start: 10px;
+    }
+
+    &:hover {
+        color: var(--clr-theme-1);
+    }
+}
+
+.ms-footer2-top-inner {
+    padding: 10px 30px 0 30px;
+
+    @media #{$lg, $md, $sm, $xs} {
+        @include border-radius(10px);
+        padding: 25px 30px 10px 30px;
+    }
+
+    @media #{$xxs} {
+        padding: 25px 20px 10px 20px;
+    }
+}
+
+.ms-footer2-logo {
+    max-width: 142px;
+    text-align: center;
+}
+
+.ms-subscribe2-form {
+    &::before {
+        content: "";
+        inset-block-start: 0;
+        top: 50%;
+        width: 1px;
+        height: 40px;
+        background: var(--clr-border-1);
+        position: absolute;
+        transform: translateY(-50%);
+    }
+}
+
+.ms-social-border {
+    padding-inline-start: 33px;
+
+    @media #{$sm,$xs} {
+        padding-inline-start: 0;
+    }
+
+    &.two {
+        @media #{ $md, $sm, $xs} {
+            margin-bottom: 30px;
+            margin-top: 20px;
+        }
+
+    }
+
+    &::before {
+        content: "";
+        inset-inline-start: 0;
+        top: 60%;
+        width: 1px;
+        height: 40px;
+        background: var(--clr-border-1);
+        position: absolute;
+        transform: translateY(-50%);
+
+        @media #{$sm,$xs} {
+            display: none;
+        }
+    }
+}
+
+.ms-footer2-contact {
+    border-bottom: 1px dashed var(--clr-border-1);
+
+    ul {
+        li {
+            display: flex;
+            gap: 10px 15px;
+            margin-bottom: 15px;
+
+            a {
+                &::after {
+                    display: none;
+                }
+
+                &:hover {
+                    padding-inline-start: 0;
+                }
+            }
+
+            i {
+                top: 5px;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.ms-footer2-rating {
+    h3 {
+        font-size: 15px;
+        color: var(--clr-common-body-text);
+        font-family: var(--bd-ff-body);
+        display: flex;
+        align-items: center;
+
+        @media #{$xxs} {
+            flex-wrap: wrap;
+            gap: 20px 0;
+        }
+
+        a {
+            background: var(--clr-bg-10);
+            border-radius: 30px;
+            height: 40px;
+            display: inline-block;
+            line-height: 35px;
+            margin-inline-start: 10px;
+            padding: 0 14px;
+
+            @media #{$xxs} {
+                margin-inline-start: 0;
+
+            }
+        }
+    }
+}
+
+.ms-footer2-widget2 {
+    @media #{$xl} {
+        margin-inline-start: 40px;
+    }
+
+    @media #{$lg} {
+        margin-inline-start: 30px;
+    }
+}
+
+.ms-footer2-rating.three {
+    @media #{$xs} {
+        margin-bottom: 25px;
+    }
+}

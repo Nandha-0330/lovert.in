@@ -1,0 +1,109 @@
+@use '../utils' as *;
+
+/* ------------------------------------------ */
+/*  20 - scroll-text css  */
+/* ------------------------------------------ */
+.text-color-1 {
+    color: var(--clr-theme-1);
+}
+
+.text-color-2 {
+    color: var(--clr-theme-2);
+}
+
+.scroll__text h3 {
+    font-size: 65px;
+    font-weight: var(--bd-fw-regular);
+    line-height: 1;
+    color: var(--clr-common-white);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0;
+
+    @media #{$xl, $lg, $md, $sm, $xs} {
+        font-size: 40px;
+    }
+
+    @media #{$xxs} {
+        font-size: 30px;
+    }
+}
+
+.ms-text-line-2 {
+    transform: translateY(-108px) rotate(-8.59deg);
+    background: var(--clr-bg-2);
+
+    @media #{$lg, $md, $sm, $xs} {
+        transform: none;
+        margin-bottom: 0px;
+    }
+}
+
+.ms-text-line-1 {
+    background: var(--clr-bg-2);
+    transform: rotate(4.25deg);
+
+    @media #{$lg,$md} {
+        transform: none;
+        margin-bottom: 30px;
+    }
+
+    @media #{$sm,$xs} {
+        transform: none;
+        margin-bottom: 20px;
+    }
+}
+
+.scroll__text .swiper-slide {
+    width: auto;
+    margin: 0 25px;
+
+    @media #{$xl, $lg, $md, $sm, $xs} {
+        margin: 0 15px;
+    }
+}
+
+.text__scroll-wrapper {
+    transform: rotate(2deg);
+
+    @media #{$xl, $lg, $md, $sm, $xs} {
+        transform: none;
+    }
+}
+
+.ms-ts-space {
+    padding-top: 260px;
+    padding-bottom: 0px;
+
+    @media #{$lg, $md} {
+        padding-top: 130px;
+        padding-bottom: 0px;
+    }
+
+    @media #{$sm,$xs} {
+        padding-top: 0px;
+        padding-bottom: 0;
+    }
+}
+
+.ms-ts-overlay {
+    position: relative;
+
+    &::after {
+        background: var(--clr-bg-2);
+        content: "";
+        width: 100%;
+        height: 100%;
+        inset-inline-start: 0;
+        top: 0;
+        z-index: -1;
+        position: absolute;
+        opacity: 0.965;
+    }
+}
+
+.ms-st-active-wrapper,
+.ms-str-active-wrapper {
+    -webkit-transition-timing-function: linear;
+    transition-timing-function: linear;
+}

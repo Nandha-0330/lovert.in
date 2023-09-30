@@ -1,0 +1,267 @@
+@use '../utils' as *;
+
+/* ------------------------------------------ */
+/*  22 - work css  */
+/* ------------------------------------------ */
+
+.work-overlay {
+	position: relative;
+	z-index: 11;
+
+	&:before {
+		position: absolute;
+		content: "";
+		top: 0;
+		inset-inline-start: 0;
+		height: 100%;
+		width: 100%;
+		background: var(--clr-bg-2);
+		opacity: 0.8;
+		z-index: -1;
+	}
+}
+
+.work__vactor-shape {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	inset-inline-start: 29px;
+}
+
+.work__content-space {
+	@media #{$lg,$md,$sm,$xs} {
+		padding-inline-start: 0;
+	}
+}
+
+.work__content-wrapper-space {
+	padding-inline-start: 0px;
+
+	@media #{$xl, $lg, $md, $sm, $xs} {
+		padding-inline-start: 0;
+	}
+
+	p {
+		max-width: 570px;
+	}
+}
+
+.work__thumb-inner {
+	display: flex;
+	gap: 20px;
+}
+
+.work__thumb {
+	img {
+		border-radius: 10px;
+		max-width: 100%;
+	}
+}
+
+.work__small-thumb {
+	grid-template-columns: 1fr;
+	display: grid;
+	gap: 20px;
+}
+
+.work__features-content {
+	max-width: 325px;
+
+	h4 {
+		color: var(--clr-common-white);
+		font-weight: var(--bd-fw-sbold);
+		margin-bottom: 10px;
+	}
+
+	p {
+		text-transform: capitalize;
+		margin-bottom: 0;
+	}
+}
+
+.work__features-icon {
+	span {
+		display: inline-flex;
+		width: 82px;
+		height: 82px;
+		border: 1px solid var(--clr-border-1);
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+	}
+
+	svg {
+		@include transition(.3s);
+	}
+}
+
+.work__features-item {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	margin-bottom: 55px;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	@media #{$xxs} {
+		flex-wrap: wrap;
+	}
+
+	&:hover {
+		.work__features-icon svg {
+			transform: scale(1.2);
+
+		}
+	}
+}
+
+.work__features-action {
+	display: flex;
+	align-items: center;
+	gap: 30px 60px;
+	flex-wrap: wrap;
+}
+
+.work__features-arrow {
+	position: absolute;
+	inset-block-start: 20px;
+	inset-inline-start: 148px;
+
+	@include rtl {
+		transform: rotateY(180deg);
+	}
+}
+
+.work__thumb-card {
+	background: var(--clr-common-white);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-radius: 10px;
+	padding: 20px 15px;
+	position: absolute;
+	bottom: 46px;
+	left: 53%;
+	transform: translateX(-50%);
+	gap: 10px 25px;
+	flex-wrap: wrap;
+}
+
+.work__card-content {
+	span {
+		font-weight: var(--bd-fw-sbold);
+		color: var(--clr-theme-1);
+	}
+
+	p {
+		margin-bottom: 0;
+		color: var(--clr-common-black);
+	}
+}
+
+.card__btn {
+	height: 40px;
+	padding: 0 7px;
+	background: var(--clr-bg-10);
+	display: inline-block;
+	border-radius: 30px;
+	line-height: 40px;
+	font-size: 14px;
+}
+
+.work__features-bottom {
+	padding-bottom: 47px;
+	position: relative;
+
+	@media #{$xxs} {
+		padding-bottom: 0;
+	}
+}
+
+.work__features-icon {
+	min-width: 82px;
+}
+
+// work 2 css
+.ms-work-round {
+	width: 308px;
+	height: 308px;
+	inset-inline-start: 40px;
+	top: 50px;
+	background: var(--clr-bg-10);
+	border-radius: 50%;
+
+	&.two {
+		bottom: 0;
+		right: 0;
+		top: auto;
+		inset-inline-start: auto;
+	}
+}
+
+
+// work 3 css 
+.work__thumb-card.ms-work3-card {
+	inset-inline-end: -93px;
+	inset-inline-start: auto;
+	transform: rotate(270deg);
+	bottom: 121px;
+
+	@media #{$xs} {
+		position: unset;
+		transform: rotate(0);
+		margin-top: 70px;
+	}
+}
+
+.work__features-bottom.ms-work3-features {
+	inset-inline-start: 20%;
+	bottom: 90px;
+	position: absolute;
+
+	@media #{$xs} {
+		inset-inline-start: 10%;
+		bottom: 70px;
+	}
+
+
+}
+
+.ms-work3-thumb {
+	@media #{$xl} {
+		margin-inline-end: 20px;
+	}
+}
+
+
+// work system css 
+.ms-work-system-grid {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	justify-content: space-between;
+
+	@media #{$lg, $md} {
+		grid-template-columns: auto auto;
+	}
+
+	@media #{$sm, $xs} {
+		grid-template-columns: auto;
+	}
+
+	.work__features-item:last-child {
+		margin-bottom: 55px;
+	}
+}
+
+.ms-work-system-img img {
+	min-height: 200px;
+	object-fit: cover;
+}
+
+.work__content-space {
+	@media #{$md, $sm, $xs} {
+		padding-inline-start: 0;
+	}
+}
