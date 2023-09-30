@@ -124,104 +124,92 @@
     <div class="offcanvas__overlay"></div>
     <div class="offcanvas__overlay-white"></div>
     <!-- Offcanvas area start -->
- <!-- Flash messages will be displayed here -->
-<style>
-    /* Style for the flash messages container */
-    .flash-container {
-        position: fixed;
-        top: 20px; /* Adjust as needed for your desired position */
-        right: 20px; /* Adjust as needed for your desired position */
-        z-index: 2147483647; /* Set a high z-index value to ensure it's on top of other elements */
-    }
 
-    /* Style for the flash messages */
-    .flash {
-        background-color: green; /* Background color for success messages */
-        color: white; /* Text color (white) */
-        padding: 10px;
-        border-radius: 5px;
-        margin-top: 40px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add shadow for a raised effect */
-    }
-</style>
-<div class="container mt-4">
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            {% for message in messages %}
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ message }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
-</div>
-   <!-- Banner Area Start Here  -->
-           <section class="ms-banner-area p-relative">
-    <a class="ms-scroll-down" href="#">SCROLL DOWN</a>
-    <div class="ms-banner-social p-absolute">
-        <div class="ms-footer-social">
-            <a href="https://www.instagram.com/" title="Instagram" target="_blank">IN</a>
-            <a href="https://twitter.com/" title="Twitter" target="_blank">TW</a>
-            <a href="https://www.facebook.com/" title="Facebook" target="_blank">FB</a>
-        </div>
-    </div>
-    <div class="container-fluid ms-maw-1710">
-        <div class="ms-br-30 mx-auto include__bg z-index-1 ms-overlay-1 p-relative"
-            data-background="static/img/banner/banner-thumb-01.png">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-11">
-                        <div class="ms-banner__main-wrapper">
-                            <div class="ms-banner__content text-center">
-                                <h1 class="ms-banner__bg-title"
-                                    data-background="static/img/banner/title-bg.png">
-                                    love
-                                </h1>
-                                <h2 class="ms-banner__title msg_title bd-title-anim">Exceptional Live Bands &amp; Musicians Hire For Your Event or Party</h2>
-                            </div>
-                            <div class="ms-banner__form bdFadeUp">
-                                <form action="/" method="post" class="ms-banner__from-inner white-bg">
-                                    <div class="ms-banner__form-select ms-nice-select">
-                                        <select name="location" required>
-                                            <option value="" disabled>Select Location</option>
-                                            <option value="Coimbatore">Coimbatore</option>
-                                            <!-- Add more location options as needed -->
-                                        </select>
+
+
+    <!-- Header area start -->
+    <header>
+        <div id="header-sticky" class="header__area header-1 ms-header-fixed ms-bg-body">
+            <div class="container-fluid ms-maw-1710">
+                <div class="row align-items-center">
+                    <div class="col-12">
+                        <div class="mega__menu-wrapper p-relative">
+                            <div class="header__main ms-border2 d-flex align-items-center justify-content-between">
+                                <div class="header__logo pt-10 pb-15">
+                                    <a href="index.html">
+                                        <img src="static/img/logo/logo.png" alt="logo not found">
+                                    </a>
+                                </div>
+                                <div class="header__right">
+                                    <div class="mean__menu-wrapper">
+                                        <div class="main-menu main-menu-ff-space">
+                                            <nav id="mobile-menu">
+                                                <ul>
+                                                    <li class="has-dropdown">
+                                                        <li><a href="/">Home</a></li>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/about">About us</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/works">How It Works</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/contact">Contact Us</a>
+                                                    </li>
+    
+                                                    <li>
+                                                        <a href="/#enquiry-section"> Enquiry Now</a>
+                                                    </li>
+                                                   <li>
+                                                  <span>
+                                                      {% if 'user_id' in session %}
+                                                          <div class="mobile-menu">
+                                                              <a class="font-weight-bold text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                  Welcome, {{ session['user_name'] }}
+                                                              </a>
+                                                              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                                  <a class="font-weight-bold text-white" href="/logout">Logout</a>
+                                                              </div>
+                                                          </div>
+                                                      {% else %}
+                                                          <a href="/login" class="font-weight-bold text-white">Login</a>
+                                                      {% endif %}
+                                                  </span>
+                                                      </li>
+                                                </ul>
+                                            </nav>
+                                            <!-- for wp -->
+                                            <div class="header__hamburger ml-50 d-none">
+                                                <button type="button" class="hamburger-btn offcanvas-open-btn">
+                                                    <span>01</span>
+                                                    <span>01</span>
+                                                    <span>01</span>
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="ms-banner__form-select ms-nice-select">
-                                        <select name="event_package" required>
-                                            <option value="" disabled>Select Event Package</option>
-                                            <option value="Blind Date">Blind Date</option>
-                                            <option value="Truth or Dare">Truth or Dare</option>
-                                            <!-- Add more event package options as needed -->
-                                        </select>
+                                    
+                                    <div class="header__hamburger">
+                                        <div class="sidebar__toggle">
+                                            <a class="bar-icon" href="javascript:void(0)">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </a>
+                                        </div>
                                     </div>
-                                    <div class="ms-banner__form-select ms-nice-select ms-border-none">
-                                        <select name="event_location" required>
-                                            <option value="" disabled>Select Event Location</option>
-                                            <option value="Boxed">Boxed</option>
-                                            <!-- Add more event location options as needed -->
-                                        </select>
-                                    </div>
-                                    <div class="banner__form-button">
-                                        <button class="input__btn" type="submit"><i class="flaticon-loupe"></i> Find Seats</button>
-                                    </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </header>
+    <!-- Header area end -->
 
-            <!-- Banner Area End Here  -->
-
-    <div class="ms-all-content ms-content-mobile-space pt-100">
+    <div class="ms-all-content ms-content-mobile-space pt-130">
         <main>
             <!-- Brand Song Area Start Here  -->
             <section class="ms-song-area pt-40 pb-40">
@@ -325,71 +313,66 @@
             <!-- Brand Song Area End Here  -->
 
             <!-- Banner Area Start Here  -->
-            <section class="ms-banner-area p-relative">
-                <a class="ms-scroll-down" href="#">SCROLL DOWN</a>
-                <div class="ms-banner-social p-absolute">
-                    <div class="ms-footer-social">
-                        <a href="https://www.instagram.com/" title="Instagram" target="_blank">IN</a>
-                        <a href="https://twitter.com/" title="Twitter" target="_blank">TW</a>
-                        <a href="https://www.facebook.com/" title="Facebook" target="_blank">FB</a>
-                    </div>
-                </div>
-                <div class="container-fluid ms-maw-1710">
-                    <div class="ms-br-30 mx-auto include__bg z-index-1 ms-overlay-1 p-relative" data-background="static/img/banner/banner-thumb-01.png">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-xl-11">
-                                    <div class="ms-banner__main-wrapper">
-                                        <div class="ms-banner__content text-center">
-                                            <h1 class="ms-banner__bg-title" data-background="static/img/banner/title-bg.png">
-                                                love
-                                            </h1>
-                                            <h2 class="ms-banner__title msg_title bd-title-anim">Exceptional Live Bands &amp; Musicians Hire For Your Event or Party</h2>
-                                        </div>
-                                        <div class="ms-banner__form bdFadeUp">
-                                           <!-- Add this to your index.html page -->
-                                          <form action="/" method="post" class="ms-banner__from-inner white-bg">
-                                              <div class="ms-banner__form-select ms-nice-select">
-                                                  <select name="location" required>
-                                                      <option value="" disabled>Select Location</option>
-                                                      <option value="Coimbatore">Coimbatore</option>
-                                                      <!-- Add more location options as needed -->
-                                                  </select>
-                                              </div>
-                                              <div class="ms-banner__form-select ms-nice-select">
-                                                  <select name="event_package" required>
-                                                      <option value="" disabled>Select Event Package</option>
-                                                      <option value="Blind Date">Blind Date</option>
-                                                      <option value="Truth or Dare">Truth or Dare</option>
-                                                      <!-- Add more event package options as needed -->
-                                                  </select>
-                                              </div>
-                                              <div class="ms-banner__form-select ms-nice-select ms-border-none">
-                                                  <select name="event_location" required>
-                                                      <option value="" disabled>Select Event Location</option>
-                                                      <option value="Boxed">Boxed</option>
-                                                      <!-- Add more event location options as needed -->
-                                                  </select>
-                                              </div>
-                                              
-                                              <div class="banner__form-button">
-                                                  {% if 'user_id' in session %}
-                                                  <button class="input__btn" type="submit"><i class="flaticon-loupe"></i> Find Seats</button>
-                                                  {% else %}
-                                                   <a class="input__btn" href="/login">Please log in to book Seats</a> 
-                                                  
-                                                  {% endif %}
-                                              </div>
-                                          </form>
-
-                                        </div>
+           <section class="ms-banner-area p-relative">
+    <a class="ms-scroll-down" href="#">SCROLL DOWN</a>
+    <div class="ms-banner-social p-absolute">
+        <div class="ms-footer-social">
+            <a href="https://www.instagram.com/" title="Instagram" target="_blank">IN</a>
+            <a href="https://twitter.com/" title="Twitter" target="_blank">TW</a>
+            <a href="https://www.facebook.com/" title="Facebook" target="_blank">FB</a>
+        </div>
+    </div>
+    <div class="container-fluid ms-maw-1710">
+        <div class="ms-br-30 mx-auto include__bg z-index-1 ms-overlay-1 p-relative"
+            data-background="static/img/banner/banner-thumb-01.png">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-11">
+                        <div class="ms-banner__main-wrapper">
+                            <div class="ms-banner__content text-center">
+                                <h1 class="ms-banner__bg-title"
+                                    data-background="static/img/banner/title-bg.png">
+                                    love
+                                </h1>
+                                <h2 class="ms-banner__title msg_title bd-title-anim">Exceptional Live Bands &amp; Musicians Hire For Your Event or Party</h2>
+                            </div>
+                            <div class="ms-banner__form bdFadeUp">
+                                <form action="/" method="post" class="ms-banner__from-inner white-bg">
+                                    <div class="ms-banner__form-select ms-nice-select">
+                                        <select name="location" required>
+                                            <option value="" disabled>Select Location</option>
+                                            <option value="Coimbatore">Coimbatore</option>
+                                            <!-- Add more location options as needed -->
+                                        </select>
                                     </div>
-                                </div>
+                                    <div class="ms-banner__form-select ms-nice-select">
+                                        <select name="event_package" required>
+                                            <option value="" disabled>Select Event Package</option>
+                                            <option value="Blind Date">Blind Date</option>
+                                            <option value="Truth or Dare">Truth or Dare</option>
+                                            <!-- Add more event package options as needed -->
+                                        </select>
+                                    </div>
+                                    <div class="ms-banner__form-select ms-nice-select ms-border-none">
+                                        <select name="event_location" required>
+                                            <option value="" disabled>Select Event Location</option>
+                                            <option value="Boxed">Boxed</option>
+                                            <!-- Add more event location options as needed -->
+                                        </select>
+                                    </div>
+                                    <div class="banner__form-button">
+                                        <button class="input__btn" type="submit"><i class="flaticon-loupe"></i> Find Seats</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </div>
+    </div>
+</section>
+
             <!-- Banner Area End Here  -->
 
             <!-- Text scroll area start -->
@@ -2133,7 +2116,7 @@
             </section>
             <!-- Partner Area End Here  -->
 
-
+          
 
         </main>
         <!-- Footer Area Start Here  -->
