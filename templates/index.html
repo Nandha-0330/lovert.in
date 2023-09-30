@@ -22,26 +22,26 @@
     <link rel="stylesheet" href="static/app/css/fontawesome-pro.css">
     <link rel="stylesheet" href="static/app/css/spacing.css">
     <link rel="stylesheet" href="static/app/css/main.css">
-  <style>
-    /* Style for the input box */
-.custom-date-input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    background-color: #f9f9f9;
-}
-
-/* Style for the label */
-.ms-input2-box label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #333;
-}
-
-  </style>
+    <style>
+        /* Style for the input box */
+        
+        .custom-date-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #f9f9f9;
+        }
+        /* Style for the label */
+        
+        .ms-input2-box label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
 </head>
 
 <body>
@@ -85,31 +85,30 @@
                         </div>
                     </div>
                     <!-- Your HTML template -->
-                        <div class="offcanvas__user mb-30 d-xxl-none">
-                            {% if 'user_id' in session %}
-                            <div class="user__acount">
-                                <span>
+                    <div class="offcanvas__user mb-30 d-xxl-none">
+                        {% if 'user_id' in session %}
+                        <div class="user__acount">
+                            <span>
                                     <a href='#'><i class="flaticon-user"></i></a>
                                 </span>
-                                <div class="user__name-mail">
-                                    <h4 class="user__name">{{ session['user_name'] }}</h4>
-                                    <p class="user__mail">{{ session['email'] }}</p>
-                                    <a class="font-weight-bold text-white" href="/logout">Logout</a>
-                                </div>
+                            <div class="user__name-mail">
+                                <h4 class="user__name">{{ session['user_name'] }}</h4>
+                                <p class="user__mail">{{ session['email'] }}</p>
+                                <a class="font-weight-bold text-white" href="/logout">Logout</a>
                             </div>
-                            {% else %}
-                            <p><a class='font-weight-bold text-white' href="/login">Login</a></p>
-                            {% endif %}
-                          </div>
+                        </div>
+                        {% else %}
+                        <p><a class='font-weight-bold text-white' href="/login">Login</a></p>
+                        {% endif %}
+                    </div>
                     <div class="hr-1 mt-30 mb-30 d-xl-none"></div>
                     <div class="mobile-menu fix mb-30  d-xl-none"></div>
                     <div class="hr-1 mt-30 mb-30 d-xl-none"></div>
-                  <div class='mb-20'> 
-                      {% if 'user_id' in session %}
-                      <a class="font-weight-bold text-white mb-5 m-10" href="/logout">Logout</a>
-                      {% endif %}
-                  </div>
-                    
+                    <div class='mb-20'>
+                        {% if 'user_id' in session %}
+                        <a class="font-weight-bold text-white mb-5 m-10" href="/logout">Logout</a> {% endif %}
+                    </div>
+
                     <div class="offcanvas__social">
                         <div class="ms-footer-social mb-0">
                             <a href="https://www.linkedin.com/" title="Instagram" target="_blank">IN</a>
@@ -124,40 +123,9 @@
     <div class="offcanvas__overlay"></div>
     <div class="offcanvas__overlay-white"></div>
     <!-- Offcanvas area start -->
- <!-- Flash messages will be displayed here -->
-<style>
-    /* Style for the flash messages container */
-    .flash-container {
-        position: fixed;
-        top: 20px; /* Adjust as needed for your desired position */
-        right: 20px; /* Adjust as needed for your desired position */
-        z-index: 2147483647; /* Set a high z-index value to ensure it's on top of other elements */
-    }
 
-    /* Style for the flash messages */
-    .flash {
-        background-color: green; /* Background color for success messages */
-        color: white; /* Text color (white) */
-        padding: 10px;
-        border-radius: 5px;
-        margin-top: 40px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add shadow for a raised effect */
-    }
-</style>
-<div class="container mt-4">
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            {% for message in messages %}
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ message }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
-</div>
+
+
     <!-- Header area start -->
     <header>
         <div id="header-sticky" class="header__area header-1 ms-header-fixed ms-bg-body">
@@ -188,12 +156,12 @@
                                                     <li>
                                                         <a href="/contact">Contact Us</a>
                                                     </li>
-    
+
                                                     <li>
                                                         <a href="/#enquiry-section"> Enquiry Now</a>
                                                     </li>
-                                                   <li>
-                                                  <span>
+                                                    <li>
+                                                        <span>
                                                       {% if 'user_id' in session %}
                                                           <div class="mobile-menu">
                                                               <a class="font-weight-bold text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -207,7 +175,7 @@
                                                           <a href="/login" class="font-weight-bold text-white">Login</a>
                                                       {% endif %}
                                                   </span>
-                                                      </li>
+                                                    </li>
                                                 </ul>
                                             </nav>
                                             <!-- for wp -->
@@ -220,7 +188,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="header__hamburger">
                                         <div class="sidebar__toggle">
                                             <a class="bar-icon" href="javascript:void(0)">
@@ -240,7 +208,7 @@
     </header>
     <!-- Header area end -->
 
-    <div class="ms-all-content ms-content-mobile-space pt-100">
+    <div class="ms-all-content ms-content-mobile-space pt-130">
         <main>
             <!-- Brand Song Area Start Here  -->
             <section class="ms-song-area pt-40 pb-40">
@@ -366,41 +334,33 @@
                                             <h2 class="ms-banner__title msg_title bd-title-anim">Exceptional Live Bands &amp; Musicians Hire For Your Event or Party</h2>
                                         </div>
                                         <div class="ms-banner__form bdFadeUp">
-                                           <!-- Add this to your index.html page -->
-                                          <form action="/" method="post" class="ms-banner__from-inner white-bg">
-                                              <div class="ms-banner__form-select ms-nice-select">
-                                                  <select name="location" required>
-                                                      <option value="" disabled>Select Location</option>
-                                                      <option value="Coimbatore">Coimbatore</option>
-                                                      <!-- Add more location options as needed -->
-                                                  </select>
-                                              </div>
-                                              <div class="ms-banner__form-select ms-nice-select">
-                                                  <select name="event_package" required>
-                                                      <option value="" disabled>Select Event Package</option>
-                                                      <option value="Blind Date">Blind Date</option>
-                                                      <option value="Truth or Dare">Truth or Dare</option>
-                                                      <!-- Add more event package options as needed -->
-                                                  </select>
-                                              </div>
-                                              <div class="ms-banner__form-select ms-nice-select ms-border-none">
-                                                  <select name="event_location" required>
-                                                      <option value="" disabled>Select Event Location</option>
-                                                      <option value="Boxed">Boxed</option>
-                                                      <!-- Add more event location options as needed -->
-                                                  </select>
-                                              </div>
-                                              
-                                              <div class="banner__form-button">
-                                                  {% if 'user_id' in session %}
-                                                  <button class="input__btn" type="submit"><i class="flaticon-loupe"></i> Find Seats</button>
-                                                  {% else %}
-                                                   <a class="input__btn" href="/login">Please log in to book Seats</a> 
-                                                  
-                                                  {% endif %}
-                                              </div>
-                                          </form>
-
+                                            <form action="/" method="post" class="ms-banner__from-inner white-bg">
+                                                <div class="ms-banner__form-select ms-nice-select">
+                                                    <select name="location" required>
+                                            <option value="" disabled>Select Location</option>
+                                            <option value="Coimbatore">Coimbatore</option>
+                                            <!-- Add more location options as needed -->
+                                        </select>
+                                                </div>
+                                                <div class="ms-banner__form-select ms-nice-select">
+                                                    <select name="event_package" required>
+                                            <option value="" disabled>Select Event Package</option>
+                                            <option value="Blind Date">Blind Date</option>
+                                            <option value="Truth or Dare">Truth or Dare</option>
+                                            <!-- Add more event package options as needed -->
+                                        </select>
+                                                </div>
+                                                <div class="ms-banner__form-select ms-nice-select ms-border-none">
+                                                    <select name="event_location" required>
+                                            <option value="" disabled>Select Event Location</option>
+                                            <option value="Boxed">Boxed</option>
+                                            <!-- Add more event location options as needed -->
+                                        </select>
+                                                </div>
+                                                <div class="banner__form-button">
+                                                    <button class="input__btn" type="submit"><i class="flaticon-loupe"></i> Find Seats</button>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -409,6 +369,7 @@
                     </div>
                 </div>
             </section>
+
             <!-- Banner Area End Here  -->
 
             <!-- Text scroll area start -->
@@ -941,99 +902,99 @@
             </section>
             <!-- Popular  area end -->
 
-        <section id="enquiry-section" class="ms-contact-area pb-60 pt-30">
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-8">
-                <div class="ms-contact-wrap ms-contact-space mb-70 ms-bg-2">
-                  <h3 class="ms-title4 mb-50">Enquiry Now</h3>
-                    <form method='POST' action='/submit_inquiry'>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="ms-input2-box mb-30">
-                                    <input type="text" name="name" id="name" placeholder="Your Name">
-                                </div>
+            <section id="enquiry-section" class="ms-contact-area pb-60 pt-30">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-8">
+                            <div class="ms-contact-wrap ms-contact-space mb-70 ms-bg-2">
+                                <h3 class="ms-title4 mb-50">Enquiry Now</h3>
+                                <form method='POST' action='/submit_inquiry'>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="ms-input2-box mb-30">
+                                                <input type="text" name="name" id="name" placeholder="Your Name">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="ms-input2-box mb-30">
+                                                <input type="email" name="email" id="email" placeholder="Your Email">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="ms-input2-box mb-30">
+                                                <input type="text" name="event_type" id="event_type" placeholder="Event Type (e.g., Wedding, Corporate, Lovers)">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="ms-input2-box mb-30">
+                                                <input type="text" name="phone_number" id="phone_number" placeholder="Phone Number">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="ms-input2-box mb-30">
+                                                <label for="event_date" class="ml-5px">Event Date</label>
+                                                <input type="date" name="event_date" id="event_date" class="custom-date-input" placeholder="Select Event Date">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="ms-input2-box mb-30">
+                                                <input type="text" name="event_location" id="event_location" placeholder="Event Location">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="ms-input2-box mb-30">
+                                                <input type="text" name="num_guests" id="num_guests" placeholder="Number of Guests">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="ms-input2-box mb-30">
+                                                <input type="text" name="budget" id="budget" placeholder="Budget">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="ms-input2-box mb-30">
+                                                <input type="text" name="preferred_theme" id="preferred_theme" placeholder="Preferred Theme">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="ms-input2-box mb-30">
+                                                <input type="text" name="catering_requirements" id="catering_requirements" placeholder="Catering Requirements">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="ms-input2-box mb-30">
+                                                <textarea name="event_details" id="event_details" cols="30" rows="5" placeholder="Event Details . . ."></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="ms-submit-btn mt-40">
+                                                <button class="unfill__btn" type="submit">Submit Inquiry</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
-                            <div class="col-md-6">
-                                <div class="ms-input2-box mb-30">
-                                    <input type="email" name="email" id="email" placeholder="Your Email">
+                        </div>
+                        <div class="col-xl-4">
+                            <div class="ms-contact-img-wrap mb-70 d-inline-block p-relative">
+                                <div class="ms-contact-img m-img ms-br-15 fix p-relative zindex-1">
+                                    <div class="ms-overlay ms-overlay11"></div>
+                                    <img src="static/img/news/news-07.jpg" alt="banner image">
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="ms-input2-box mb-30">
-                                    <input type="text" name="event_type" id="event_type" placeholder="Event Type (e.g., Wedding, Corporate, Lovers)">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="ms-input2-box mb-30">
-                                    <input type="text" name="phone_number" id="phone_number" placeholder="Phone Number">
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-6">
-                              <div class="ms-input2-box mb-30">
-                                  <label for="event_date" class="ml-5px">Event Date</label>
-                                  <input type="date" name="event_date" id="event_date" class="custom-date-input" placeholder="Select Event Date">
-                              </div>
-                          </div>
-                          
-                            <div class="col-md-6">
-                                <div class="ms-input2-box mb-30">
-                                    <input type="text" name="event_location" id="event_location" placeholder="Event Location">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="ms-input2-box mb-30">
-                                    <input type="text" name="num_guests" id="num_guests" placeholder="Number of Guests">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="ms-input2-box mb-30">
-                                    <input type="text" name="budget" id="budget" placeholder="Budget">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="ms-input2-box mb-30">
-                                    <input type="text" name="preferred_theme" id="preferred_theme" placeholder="Preferred Theme">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="ms-input2-box mb-30">
-                                    <input type="text" name="catering_requirements" id="catering_requirements" placeholder="Catering Requirements">
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="ms-input2-box mb-30">
-                                    <textarea name="event_details" id="event_details" cols="30" rows="5" placeholder="Event Details . . ."></textarea>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="ms-submit-btn mt-40">
-                                    <button class="unfill__btn" type="submit">Submit Inquiry</button>
+                                <div class="ms-contact-content text-center">
+                                    <div class="ms-round-icon mx-auto mb-0">
+                                        <i class="flaticon-phone-call"></i>
+                                    </div>
+                                    <h3 class="ms-title3 ms-text2 mb-15">Emergency Contact</h3>
+                                    <h2 class="ms-title5 white-text"><a href="tel:+9102369032125">+91 0236 9032 125</a></h2>
                                 </div>
                             </div>
                         </div>
-                    </form>
-                </div>
-            </div>
-            <div class="col-xl-4">
-                <div class="ms-contact-img-wrap mb-70 d-inline-block p-relative">
-                    <div class="ms-contact-img m-img ms-br-15 fix p-relative zindex-1">
-                        <div class="ms-overlay ms-overlay11"></div>
-                        <img src="static/img/news/news-07.jpg" alt="banner image">
-                    </div>
-                    <div class="ms-contact-content text-center">
-                        <div class="ms-round-icon mx-auto mb-0">
-                            <i class="flaticon-phone-call"></i>
-                        </div>
-                        <h3 class="ms-title3 ms-text2 mb-15">Emergency Contact</h3>
-                        <h2 class="ms-title5 white-text"><a href="tel:+9102369032125">+91 0236 9032 125</a></h2>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
+            </section>
 
 
             <!-- work area start -->
@@ -2287,14 +2248,14 @@
     <script src="static/app/js/jplayer.playlist.js"></script>
     <script src="static/app/js/settings.js"></script>
     <script src="static/app/js/main.js"></script>
-   <script>
-     document.addEventListener("DOMContentLoaded", function () {
-        const selectElements = document.querySelectorAll("select");
-        selectElements.forEach(function (select) {
-            new NiceSelect(select);
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const selectElements = document.querySelectorAll("select");
+            selectElements.forEach(function(select) {
+                new NiceSelect(select);
+            });
         });
-    });
-   </script>
+    </script>
 </body>
 
 </html>
